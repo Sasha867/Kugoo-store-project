@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+* {
+  font-family: jost;
+}
+button {
+  cursor: pointer;
+}
+
+body {
+  background: #e5e5e5;
+  --purple: #6f73ee;
+}
+p {
+  margin-bottom: 0;
+}
+ul {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+li,
+a {
+  list-style: none;
+  text-decoration: none;
+  color: #5d6c7b;
+}
+hr {
+  border: 1px solid #eaebed;
+}
+
+.margin_left {
+  margin-left: 165px;
+}
+
+.margin_right {
+  margin-right: 165px;
+}
