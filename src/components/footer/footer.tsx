@@ -3,12 +3,9 @@ import styles from "./footer.module.scss";
 
 export const Footer = () => {
   return (
-    // <React.Fragment>
     <footer>
       <div className={styles.footer_nav}>
-        <div
-          className={`${styles.footer_nav_row} margin_left `}
-        >
+        <div className={`${styles.footer_nav_row} margin_left `}>
           <h6 className={styles.footer_nav_email_tittle}>
             оставьте свою почту и станьте первым, кто получить скидку на новые
             самокаты
@@ -26,9 +23,7 @@ export const Footer = () => {
           </form>
         </div>
       </div>
-      <div
-        className={`${styles.wrraper_lists} margin_left margin_right`}
-      >
+      <div className={`${styles.wrraper_lists} margin_left margin_right`}>
         <div className={styles.container_left_lists}>
           <div className={styles.list}>
             <h6 className={styles.tittle_h6}>Каталог тваров</h6>
@@ -133,12 +128,8 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <hr
-        className={`${styles.list_trait} margin_left margin_right`}
-      />
-      <div
-        className={`${styles.container_label} margin_left margin_right`}
-      >
+      <hr className={`${styles.list_trait} margin_left margin_right`} />
+      <div className={`${styles.container_label} margin_left margin_right`}>
         <div className={styles.container_label_left}>
           <p className={styles.container_label_tittle}>kugoo</p>
           <a
