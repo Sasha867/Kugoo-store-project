@@ -1,20 +1,33 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./header.module.scss";
-import {FaViber, FaTelegram, FaWhatsapp} from "react-icons/fa";
+import { FaViber, FaTelegram, FaWhatsapp } from "react-icons/fa";
+import {IoIosArrowDropup} from "react-icons/io";
+import { RequestACall } from "../../pages/request-a-call/requestACall";
+
+
 
 export const Header = ()=>{
-    return(
+    const [isRequestACall, setIsRequestACall] = useState(false);
+
+      
+    function toggle(){
+        setIsRequestACall((prev)=>!prev);
+      }
+       
+      return(
         <header>
-        <div className={styles.nav}>
+         <div className={styles.nav}>
           <div className={`${styles.nav_right} margin_left`}>
             <ul>
               <li className={styles.item}>
-                <a href="">Сервис</a>
+                <Link to = "/service">Сервис</Link>
               </li>
               <li className={styles.item}>
                 <a href="#">Сотрудничество</a>
               </li>
-              <li className={styles.item}>
-                <a href="#">Заказать звонок</a>
+              <li  className={styles.item}>
+                <a onClick={()=>{setIsRequestACall(!isRequestACall)}}  href="#">Заказать звонок</a>
               </li>
               <li className={styles.networks}>
                 <a href="https://www.whatsapp.com/" target="_blank" rel="noreferrer"
@@ -26,17 +39,17 @@ export const Header = ()=>{
               </li>
             </ul>
           </div>
-          <div className={`${styles.nav_lef} margin_right`}>
+          <div className={`${styles.nav_left} margin_right`}>
             <a className={styles.number} href="tel:+121313">+7(800)505-54-61</a>
-            <a href="#"><img src="./img/Group 1659.png" alt="" /></a>
+            <IoIosArrowDropup className={styles.icon_arrow}/>
           </div>
         </div>
-  
+        
         <div className={styles.nav_center}>
           <div className={`${styles.nav_search} margin_left`}>
             <ul>
               <li>
-                <a className={styles.logo} href="#">KUGOO</a>
+                <Link to={"./"} className={styles.logo} >KUGOO</Link>
               </li>
               <li>
                 <a className={styles.catalog} href="#">Каталог </a>
@@ -55,12 +68,10 @@ export const Header = ()=>{
               ><img src="./img/Search.svg" alt="" />
             </a>
           </form>
-          <div className={`${styles.right_bar} margin_right`}>
-            <a className={styles.item_1} href="#"><img src="./img/Group1.svg" alt="" /></a>
-            <a className={styles.item_1} href="#"><img src="./img/hart.png" alt="" /></a>
-            <a href=""><img src="./img/Vector3.svg" alt="" /></a>
-            <a className={styles.item_2} href="">Корзина</a>
-          </div>
+          <div className={`${styles.wrapper_cart} margin_right`}>
+            <Link to={"/cart"} className={styles.cart_button}><img className={styles.cart_icon} src="./img/Vector3.svg" alt="" />Корзина</Link>
+            {/* <Link to={"/cart"} className={styles.login_button}><img className={styles.cart_icon} src="./img/Vector3.svg" alt="" />Корзина</Link> */}
+            </div>
         </div>
         <div className={`${styles.nav_info} margin_left`}>
           <ul>
@@ -80,6 +91,9 @@ export const Header = ()=>{
             </li>
           </ul>
         </div>
+     {isRequestACall && <RequestACall toggle = {toggle} />}
       </header>
+     
+     
     )
 }

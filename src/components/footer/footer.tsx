@@ -1,9 +1,21 @@
-import React from "react";
+import { useState } from "react";
 import styles from "./footer.module.scss";
+import { RequestACall } from "../../pages/request-a-call/requestACall";
+import { MethodsPayment } from "../payment-methods/methodsPayment";
+import { useNavigate } from "react-router-dom";
 
 export const Footer = () => {
+  const [isRequestACall, setIsRequestACall] = useState(false);
+
+  // const navigate = useNavigate();
+
+  function toggle(){
+    setIsRequestACall((prev)=>!prev);
+  }
+
   return (
     <footer>
+     {isRequestACall && <RequestACall toggle ={toggle}/>}
       <div className={styles.footer_nav}>
         <div className={`${styles.footer_nav_row} margin_left `}>
           <h6 className={styles.footer_nav_email_tittle}>
@@ -113,7 +125,7 @@ export const Footer = () => {
             </div>
           </div>
           <div className={styles.list}>
-            <a className={styles.list_request_a_call} href="#">
+            <a onClick={toggle} className={styles.list_request_a_call} href="#">
               Заказать звонок
             </a>
             <div className={`${styles.list_1} ${styles.list_3}`}>
@@ -185,6 +197,7 @@ export const Footer = () => {
         </div>
       </div>
       <hr className={`margin_left margin_right`} />
+      
       <div
         className={`${styles.container_pay_systems} margin_left margin_right`}
       >
@@ -196,29 +209,8 @@ export const Footer = () => {
             Политика конфиденциальности
           </a>
         </div>
-        <div className={styles.container_pay_systems_right}>
-          <a className={styles.container_pay_icon} href="">
-            <img src="./img/g_pay.png" alt="" />
-          </a>
-          <a className={styles.container_pay_icon} href="">
-            <img src="./img/pay.png" alt="" />
-          </a>
-          <a className={styles.container_pay_icon} href="">
-            <img src="./img/visa.png" alt="" />
-          </a>
-          <a className={styles.container_pay_icon} href="">
-            <img src="./img/master.png" alt="" />
-          </a>
-          <a className={styles.container_pay_icon} href="">
-            <img src="./img/master_1.png" alt="" />
-          </a>
-          <a className={styles.container_pay_icon} href="">
-            <img src="./img/webmoney.png" alt="" />
-          </a>
-          <a className={styles.container_pay_icon} href="">
-            <img src={"./img/fox.png"} alt="" />
-          </a>
-          <div className={styles.container_pay_systems_chats}>
+        <MethodsPayment/>
+        <div className={styles.container_pay_systems_chats}>
             <p className={styles.container_chats_tittle}>Online чат:</p>
             <a className={styles.container_chats_icon} href="">
               <img src="./img/viber 1.png" alt="" />
@@ -230,7 +222,7 @@ export const Footer = () => {
               <img src="./img/telegram 1.png" alt="" />
             </a>
           </div>
-        </div>
+        {/* </div> */}
       </div>
     </footer>
   );
