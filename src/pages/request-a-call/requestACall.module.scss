@@ -1,0 +1,96 @@
+.request_call_wrapper {
+  display: flex;
+  position: absolute;
+  width: 790px;
+  height: 428px;
+  border-radius: 5px;
+  border: 1px solid rgb(223, 222, 222);
+  background-color: #f4f7fb;
+  justify-content: space-between;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 2px 2px 4px 4px rgb(0, 0, 0, 0.25);
+}
+.request_call_info_tittle {
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  line-height: 35px;
+}
+.request_call_background {
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  background-image: url("..//..//..//public/img/woman-longsleeve-request-call.png");
+  background-repeat: no-repeat;
+}
+
+.request_call_info {
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-wrap: nowrap;
+  width: 45%;
+  align-items: center;
+}
+.request_call_info_answer {
+  font-size: 15px;
+  line-height: 20px;
+}
+.request_call_input {
+  border-radius: 5px;
+  width: 90%;
+  height: 40px;
+  text-align: center;
+}
+.request_call_input::-webkit-input-placeholder {
+  text-align: center;
+  font-size: 15px;
+}
+.request_call_input:focus {
+  outline: 2px solid var(--purple);
+}
+
+.request_call_button {
+  width: 90%;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--purple);
+  color: #f4f7fb;
+  font-size: 16px;
+}
+
+.request_call_info_agreement_wrapper {
+  display: flex;
+}
+
+.request_call_info_agreement {
+  width: 200px;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.request_call_info_check_box {
+  margin-right: 15px;
+  background-color: #f4f7fb;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border-color: 1px solid red;
+}
+
+.request_call_info_important {
+  color: var(--purple);
+  cursor: pointer;
+}
+
+.cross_icon {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  color: rgb(152, 148, 148);
+  margin: 5px 5px 0px 0px;
+}
