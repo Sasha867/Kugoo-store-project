@@ -1,0 +1,115 @@
+.wrapper {
+  display: flex;
+  max-width: 1440px;
+  height: auto;
+  background-color: #fff;
+  padding: 30px 30px;
+}
+.main_cooperation {
+  display: flex;
+  width: 100%;
+  min-height: 421px;
+  background: #f4f7fb;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  margin-top: 60px;
+}
+.tittle_info {
+  max-width: 570px;
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 50px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.more_info {
+  font-size: 20px;
+  font-weight: 400;
+  color: #282739;
+}
+
+.get_price {
+  max-width: 377px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--purple);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+  border-radius: 10px;
+  color: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.tittle_get_price {
+  max-width: 245px;
+  font-size: 20px;
+  font-weight: 600;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.ingo_get_price {
+  max-width: 245px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 18px;
+  margin: 14px 0 14px 0;
+}
+
+.input_get_price {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 15px 25px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+  color: #ffffff;
+  outline: #ffffff;
+}
+.input_get_price::-webkit-input-placeholder {
+  color: #ffffff;
+}
+.btn_get_price {
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 15px 25px;
+  background: rgb(255, 255, 255);
+  margin-bottom: 20px;
+  color: var(--purple);
+}
+
+.get_price_info_agreement {
+  text-align: center;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 400;
+}
+
+.get_price_info_important {
+  text-decoration: underline;
+}
+
+.get_price_info_check_box {
+  display: flex;
+  margin-right: 15px;
+  background-color: #ffffff;
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  border: 1px solid #ffffff;
+}
+.get_price_info_agreement {
+  display: flex;
+}

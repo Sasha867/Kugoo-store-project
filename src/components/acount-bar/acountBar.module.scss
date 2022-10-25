@@ -1,0 +1,83 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  position: absolute;
+  width: 250px;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid rgb(223, 222, 222);
+  background-color: #ffffff;
+  justify-content: flex-start;
+  left: 0;
+  top: 0;
+  transform: translate(-25%, 20%);
+  box-shadow: 2px 2px 4px 4px rgb(0, 0, 0, 0.25);
+  padding: 12px;
+}
+.user_bar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user_icon {
+  width: 48px;
+  height: 48px;
+  color: rgb(223, 222, 222);
+  margin-bottom: 10px;
+}
+hr {
+  width: 100%;
+}
+.userToolsBtn {
+  display: flex;
+  justify-content: center;
+  font-size: 16px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background: #6f73ee;
+  color: #ffff;
+  margin-bottom: 20px;
+}
+.cart_icon {
+  color: var(--purple);
+  margin-right: 8px;
+  width: 20px;
+  height: 18px;
+}
+.profile_cart {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: rgb(12, 12, 12);
+  margin-bottom: 7px;
+  border-radius: 5px;
+}
+.profile_cart:hover,
+.userSignOutBtn:hover {
+  background-color: #e7ebf0;
+  color: var(--purple);
+}
+
+.user_email {
+  font-size: 14px;
+  color: var(--purple);
+  margin-bottom: 15px;
+}
+
+.user_select {
+  display: flex;
+  flex-direction: column;
+}
+
+.userSignOutBtn {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  color: var(--purple);
+  margin-top: 7px;
+  border-radius: 5px;
+  font-size: 16px;
+  background-color: #ffffff;
+}

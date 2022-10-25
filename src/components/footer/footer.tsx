@@ -1,21 +1,28 @@
-import { useState } from "react";
-import styles from "./footer.module.scss";
 import { RequestACall } from "../../pages/request-a-call/requestACall";
-import { MethodsPayment } from "../payment-methods/methodsPayment";
-import { useNavigate } from "react-router-dom";
+import { MethodsPayment } from "../payment-methods/methods-payment";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  isOpenModal,
+  isOpenRequestCall,
+} from "../../redux/selectors/selectors";
+import { openRequestCall } from "../../redux/features/visibleSlice";
+import { Modal } from "../auth-modal/auth-modal-window";
+import { Link } from "react-router-dom";
+import styles from "./footer.module.scss";
 
 export const Footer = () => {
-  const [isRequestACall, setIsRequestACall] = useState(false);
+  const visible = useSelector(isOpenRequestCall);
+  const dispatch = useDispatch();
+  const visibleModal = useSelector(isOpenModal);
 
-  // const navigate = useNavigate();
-
-  function toggle(){
-    setIsRequestACall((prev)=>!prev);
-  }
+  const toggleRequestCall = () => {
+    dispatch(openRequestCall());
+  };
 
   return (
     <footer>
-     {isRequestACall && <RequestACall toggle ={toggle}/>}
+      {visibleModal && <Modal />}
+      {visible && <RequestACall />}
       <div className={styles.footer_nav}>
         <div className={`${styles.footer_nav_row} margin_left `}>
           <h6 className={styles.footer_nav_email_tittle}>
@@ -49,101 +56,99 @@ export const Footer = () => {
               Электровелосипеды
             </a>
             <a className={styles.list_item} href="#">
-              Электровелосипеды
+              Пылесосы-роботы
             </a>
           </div>
           <div className={styles.list}>
-            <h6 className={styles.tittle_h6}>Покупателм</h6>
-            <a className={styles.list_item} href="#">
-              cервисный центр
-            </a>
-            <a className={styles.list_item} href="#">
+            <h6 className={styles.tittle_h6}>Покупателям</h6>
+            <Link to={"/service"} className={styles.list_item}>
+              Cервисный центр
+            </Link>
+            <Link to={"/dilivery"} className={styles.list_item}>
               Доставка и оплата
-            </a>
+            </Link>
             <a className={styles.list_item} href="#">
               Рассрочка
             </a>
-            <a className={styles.list_item} href="#">
+            <Link to={"/test_drive"} className={styles.list_item}>
               Тест-драйв
-            </a>
+            </Link>
           </div>
           <div className={`${styles.list} ${styles.margin_top}`}>
-            <a className={styles.list_item} href="#">
+            <Link to={"/blog"} className={styles.list_item}>
               Блог
-            </a>
-            <a className={styles.list_item} href="#">
+            </Link>
+            <Link to={"/cooperation"} className={styles.list_item}>
               Сотрудничество
-            </a>
-            <a className={styles.list_item} href="#">
+            </Link>
+            <Link to={"/contacts"} className={styles.list_item}>
               Контакты
-            </a>
-            <a className={styles.list_item} href="#">
+            </Link>
+            <Link to={"/stock"} className={styles.list_item}>
               Акции
-            </a>
+            </Link>
           </div>
         </div>
         <div className={styles.container_right_lists}>
           <div className={styles.list}>
             <h6 className={styles.tittle_h6}>Контакты</h6>
-            <a className={styles.list_1_tittle} href="#">
-              Call-центр
+            <div className={styles.list_1_tittle}>Call-центр</div>
+            <a className={styles.list_item_1} href="tel:+123">
+              +375(29)777-77-77
             </a>
-            <a className={styles.list_item_1} href="tl:+123">
-              +7 (800) 505-54-61
-            </a>
-            <a className={styles.list_item} href="#">
-              н-Вс 10:00 - 20:00
-            </a>
+            <div className={styles.list_item}>Пн-Вс 10:00 - 20:00</div>
             <div className={styles.list_1}>
-              <a className={styles.list_1_tittle} href="#">
+              <div className={styles.list_1_tittle}>
                 Магазин в Москве <br />
                 ул. Ткацкая, 5 стр. 16
-              </a>
-              <a className={styles.list_item_2} href="tl:+123">
-                +7 (499) 406 15 87
+              </div>
+              <a className={styles.list_item_2} href="tel:+123">
+                +375(29)777-77-77
               </a>
             </div>
           </div>
           <div className={`${styles.list} ${styles.margin_top}`}>
-            <a className={styles.list_1_tittle} href="#">
-              Сервисный центр
+            <div className={styles.list_1_tittle}>Сервисный центр</div>
+            <a className={styles.list_item_1} href="tel:+123">
+              +375(29)777-77-77
             </a>
-            <a className={styles.list_item_1} href="tl:+123">
-              +7 (499) 350-76-92
-            </a>
-            <a className={styles.list_item} href="#">
-              н-Вс 10:00 - 20:00
-            </a>
+            <div className={styles.list_item}>Пн-Вс 10:00 - 20:00</div>
             <div className={styles.list_1}>
-              <a className={styles.list_1_tittle} href="#">
+              <div className={styles.list_1_tittle}>
                 Магазин в Санкт-Петербурге <br />
                 ул. Фрунзе, 2
-              </a>
-              <a className={styles.list_item_2} href="tl:+123">
-                +7 (499) 406 15 87
+              </div>
+              <a className={styles.list_item_2} href="tel:+123">
+                +375(29)777-77-77
               </a>
             </div>
           </div>
           <div className={styles.list}>
-            <a onClick={toggle} className={styles.list_request_a_call} href="#">
+            <div
+              onClick={toggleRequestCall}
+              className={`${styles.list_request_a_call} cursor_pointer`}
+            >
               Заказать звонок
-            </a>
+            </div>
             <div className={`${styles.list_1} ${styles.list_3}`}>
-              <a className={styles.list_1_tittle} href="#">
+              <div className={styles.list_1_tittle}>
                 Магазин в Краснодаре <br />
                 ул. Восточно-Кругликовская, 86
-              </a>
-              <a className={styles.list_item_2} href="tl:+123">
-                + 7 (800) 505 54 61
+              </div>
+              <a className={styles.list_item_2} href="tel:123">
+                +375(29)777-77-77
               </a>
             </div>
           </div>
         </div>
       </div>
-      <hr className={`${styles.list_trait} margin_left margin_right`} />
+
       <div className={`${styles.container_label} margin_left margin_right`}>
+        <hr />
         <div className={styles.container_label_left}>
-          <p className={styles.container_label_tittle}>kugoo</p>
+          <Link to={"/"} className={styles.container_label_tittle}>
+            kugoo
+          </Link>
           <a
             className={styles.container_label_icon}
             href="https:play.google.com/store"
@@ -196,33 +201,52 @@ export const Footer = () => {
           </a>
         </div>
       </div>
-      <hr className={`margin_left margin_right`} />
-      
       <div
         className={`${styles.container_pay_systems} margin_left margin_right`}
       >
+        <hr />
         <div className={styles.container_pay_systems_left}>
-          <a className={styles.container_pay_systems_info} href="#">
+          <Link
+            to={"/requisites"}
+            className={styles.container_pay_systems_info}
+          >
             Реквизиты
-          </a>
-          <a className={styles.container_pay_systems_info} href="#">
+          </Link>
+          <Link
+            to={"/privacy_policy"}
+            className={styles.container_pay_systems_info}
+          >
             Политика конфиденциальности
+          </Link>
+        </div>
+        <MethodsPayment />
+        <div className={styles.container_pay_systems_chats}>
+          <p className={styles.container_chats_tittle}>Online чат:</p>
+          <a
+            className={styles.container_chats_icon}
+            href="https://www.viber.com/ru/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./img/viber 1.png" alt="" />
+          </a>
+          <a
+            className={styles.container_chats_icon}
+            href="https://www.whatsapp.com/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./img/whatsapp 1.png" alt="" />
+          </a>
+          <a
+            className={styles.container_chats_icon}
+            href="https://web.telegram.org/z/"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img src="./img/telegram 1.png" alt="" />
           </a>
         </div>
-        <MethodsPayment/>
-        <div className={styles.container_pay_systems_chats}>
-            <p className={styles.container_chats_tittle}>Online чат:</p>
-            <a className={styles.container_chats_icon} href="">
-              <img src="./img/viber 1.png" alt="" />
-            </a>
-            <a className={styles.container_chats_icon} href="">
-              <img src="./img/whatsapp 1.png" alt="" />
-            </a>
-            <a className={styles.container_chats_icon} href="">
-              <img src="./img/telegram 1.png" alt="" />
-            </a>
-          </div>
-        {/* </div> */}
       </div>
     </footer>
   );

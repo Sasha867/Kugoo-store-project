@@ -30,6 +30,10 @@ footer {
   font-size: 16px;
   margin-bottom: 5px;
 }
+.input_email:focus {
+  outline: 2px solid var(--purple);
+}
+
 .input_email::-webkit-input-placeholder {
   color: #ffffff;
 }
@@ -140,6 +144,7 @@ footer {
   align-items: center;
   flex-wrap: wrap;
   min-height: 120px;
+  margin-top: 40px;
 }
 .container_label_left {
   display: flex;
@@ -162,8 +167,9 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  min-height: 60px;
+  min-height: 60px;  // remake 
   align-items: center;
+  padding-bottom: 40px;
 }
 .container_pay_systems_info {
   font-weight: normal;
@@ -199,4 +205,3 @@ footer {
   flex-wrap: wrap;
   justify-content: center;
 }
-
