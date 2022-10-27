@@ -1,0 +1,20 @@
+.login_button {
+  display: flex;
+  align-items: center;
+  font-family: Jost;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.login_icon {
+  color: var(--purple);
+  margin-right: 8px;
+  width: auto;
+  height: 18px;
+}
+.login_arow {
+  margin-left: 5px;
+}

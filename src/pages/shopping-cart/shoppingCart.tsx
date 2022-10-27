@@ -1,11 +1,11 @@
 import styles from "./shoppingCart.module.scss";
 export const ShoppingCart = () => {
   return (
-    <div className={`${styles.wrapper} margin_left`}>
+    <div className={styles.wrapper}>
       <h3 className={styles.tittle}>Моя корзина</h3>
-      <hr className={`${styles.list_trait}  margin_right`} />
+      <hr className={styles.list_trait} />
       {/* <div className={styles.container}> */}
-        <div className={`${styles.info} margin_right`}>
+        <div className={`${styles.info} `}>
         <p className={styles.message}>ваша корзина пуста</p>
       
         <p className={styles.mesage2}>Добавте товар из каталога</p> 

@@ -1,12 +1,13 @@
 .wrapper {
-  margin-top: 85px;
+  margin-top: 30px;
   font-weight: 600;
 }
 
 .tittle {
-  font-size: 35px;
+  font-size: 25px;
   text-transform: uppercase;
   font-weight: 600;
+  margin-left: 30px;
 }
 .info {
   display: flex;
@@ -15,12 +16,10 @@
   flex-direction: column;
   background: #f4f7fb;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin: 30px 30px;
   height: 35vh;
 }
-.list_trait {
-  margin-bottom: 30px;
-}
+
 .message {
   font-size: 25px;
 }

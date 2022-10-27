@@ -104,9 +104,9 @@ header {
   width: 13px;
   height: 13px;
   margin: 15px 13px 15px 15px;
-  background-image: url("..//..//../public/img/list\ catalog.svg");
+  background-image: url("../../../public/images/list\ catalog.svg");
 }
-
+// catalog.svg
 .nav_search li {
   list-style: none;
 }
@@ -142,6 +142,7 @@ header {
   font-weight: 400;
   font-family: Jost;
   color: #282739;
+  cursor: pointer;
 }
 .input_right_search {
   right: 0;
@@ -151,6 +152,16 @@ header {
   background: var(--purple);
   position: absolute;
   display: flex;
+  // background-image: url("../../images/Search.svg");
+  // background-repeat: no-repeat;
+}
+
+.input_right_search::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  margin: 11px 13px 13px 11px;
+  background-image: url("../../../public/images/Search.svg");
 }
 .input_right_search img {
   margin: auto;
@@ -171,16 +182,29 @@ header {
   cursor: pointer;
   transition: 0.2s all;
 }
-.wrapper_cart:hover {
+.wrapper_acaunt {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #dbdee3;
+  border-radius: 50px;
+  // cursor: pointer;
+  margin-right: 10px;
+  transition: 0.2s all;
+}
+.wrapper_cart:hover,
+.wrapper_acaunt:hover {
   box-shadow: 0 2px 4px gray;
 }
-.wrapper_cart:active {
+.wrapper_cart:active,
+.wrapper_acaunt:active {
   background-color: rgb(218, 221, 223);
   box-shadow: none;
   transition: 1s;
 }
 .cart_button {
   display: flex;
+  align-items: center;
   font-family: Jost;
   font-style: normal;
   font-weight: 500;
@@ -188,13 +212,16 @@ header {
   color: #282739;
   padding: 10px;
 }
-
 .cart_icon {
-  margin-right: 10px;
+  color: var(--purple);
+  margin-right: 8px;
+  width: 20px;
+  height: 18px;
 }
 
 .nav_info {
   display: flex;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   align-items: center;
   min-height: 40px;
@@ -204,28 +231,23 @@ header {
   display: flex;
   flex-wrap: wrap;
 }
-.nav_info li {
-  list-style: none;
-}
 .nav_info ul li a {
+  display: flex;
   font-family: Jost;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
-  color: #282739;
+  // color: #282739;
 }
 
-.item_3 {
+.nav_info_about_shop {
   margin-right: 50px;
 }
-.item_4 {
-  margin-right: 8px;
-}
-.item_5 {
-  margin-right: 58px;
-}
+// .nav_info_dilivery {
+//   color: #282739;
+// }
 .item_6 {
-  margin-right: 50px;
+  margin-left: 50px;
 }
 
 .icon_arrow {

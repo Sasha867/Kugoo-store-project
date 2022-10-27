@@ -1,12 +1,23 @@
+.request_call_fon {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(13, 13, 13, 0.3);
+  max-width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .request_call_wrapper {
   display: flex;
   position: absolute;
-  width: 790px;
+  max-width: 790px;
+  width: 100%;
   height: 428px;
   border-radius: 5px;
   border: 1px solid rgb(223, 222, 222);
   background-color: #f4f7fb;
-  justify-content: space-between;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -22,8 +33,8 @@
 .request_call_background {
   display: flex;
   justify-content: flex-end;
-  width: 50%;
-  background-image: url("..//..//..//public/img/woman-longsleeve-request-call.png");
+  width: 55%;
+  background-image: url("../../../public/images/woman-longsleeve-request-call.png");
   background-repeat: no-repeat;
 }
 
@@ -41,14 +52,18 @@
   line-height: 20px;
 }
 .request_call_input {
+  color: var(--purple);
+  font-size: 16px;
   border-radius: 5px;
   width: 90%;
-  height: 40px;
+  padding: 14px;
   text-align: center;
+  margin-bottom: 20px;
 }
 .request_call_input::-webkit-input-placeholder {
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
+  color: var(--purple);
 }
 .request_call_input:focus {
   outline: 2px solid var(--purple);
@@ -79,7 +94,6 @@
   width: 16px;
   height: 16px;
   border-radius: 2px;
-  border-color: 1px solid red;
 }
 
 .request_call_info_important {
