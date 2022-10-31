@@ -11,3 +11,6 @@ export const isOpenAcaunt = (state: RootState) =>
 export const getUser = (state: RootState) => state.userState.user;
 
 export const getError = (state: RootState) => state.userState.error;
+
+export const getCardsCollection = (state: RootState) =>
+  state.cardsScootersState.cardsScooterCollection;

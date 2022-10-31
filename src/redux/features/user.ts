@@ -15,16 +15,16 @@ export interface User {
   error: SerializedError | null;
 }
 
-export interface Credentials {
-  email: string;
-  password: string;
-}
-
 const initialState: User = {
   loading: "idle",
   user: null,
   error: null,
 };
+
+export interface Credentials {
+  email: string;
+  password: string;
+}
 
 export const registerUser = createAsyncThunk<any, Credentials>(
   "users/register",
@@ -46,7 +46,10 @@ export const signInUser = createAsyncThunk<any, Credentials>(
       data.email,
       data.password
     );
-    return resData; 
+    console.log(resData);
+    
+    
+    return resData;
   }
 );
 
