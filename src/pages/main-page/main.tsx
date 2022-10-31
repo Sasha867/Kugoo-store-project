@@ -1,9 +1,21 @@
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { cardsGoods } from "../../components/card-product/cardsGoods";
+import { CardsList } from "../../components/cards-list/cardsList";
+import { getCardsGoods } from "../../redux/features/cardsScooters";
+import { getCardsCollection } from "../../redux/selectors/selectors";
+import { useAppDispatch } from "../../redux/store";
 import styles from "./main.module.scss";
 
 export const Main = () => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
+
+  const collection = useSelector(getCardsCollection);
+
+  useEffect(() => {
+    dispatch(getCardsGoods(null));
+  }, []);
 
   return (
     <div className={`${styles.wrapper} margin_left`}>
@@ -50,8 +62,8 @@ export const Main = () => {
             alt="rating"
           />
         </div>
+        {collection && <CardsList collection={collection} />}
       </div>
-      {/* <CardScooter/> */}
     </div>
   );
 };

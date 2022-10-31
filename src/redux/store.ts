@@ -2,6 +2,7 @@ import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
 import visibleStateReducer from "./features/visibleSlice";
 import userStateReducer from "./features/user";
 import { useDispatch } from "react-redux";
+import cardsScootersStateReducer from "./features/cardsScooters";
 
 export const useAppDispatch = () => useDispatch<typeof store.dispatch>();
 
@@ -9,6 +10,7 @@ export const store = configureStore({
   reducer: {
     visibleState: visibleStateReducer,
     userState: userStateReducer,
+    cardsScootersState: cardsScootersStateReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
