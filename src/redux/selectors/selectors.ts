@@ -14,3 +14,9 @@ export const getError = (state: RootState) => state.userState.error;
 
 export const getCardsCollection = (state: RootState) =>
   state.cardsScootersState.cardsScooterCollection;
+
+export const getUserProduct = (state: RootState) =>
+  state.userProductState.userProduct;
+
+export const getProduct = (state: RootState) =>
+  state.cartProductState.cart;

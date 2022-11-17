@@ -1,14 +1,13 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import { CardsList } from "../../components/cards-list/cardsList";
-import { getCardsGoods } from "../../redux/features/cardsScooters";
+import { getCardsGoods } from "../../redux/features/cardScooter";
 import { getCardsCollection } from "../../redux/selectors/selectors";
 import { useAppDispatch } from "../../redux/store";
+import { Link } from "react-router-dom";
+import SwiperCards from "../../components/swiper/swiper";
 import styles from "./main.module.scss";
 
 export const Main = () => {
-  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   const collection = useSelector(getCardsCollection);
@@ -27,7 +26,11 @@ export const Main = () => {
           <span className={styles.main_more_info}>
             с бесплатной доставкой по РФ от 1 дня
           </span>
-          <button className={styles.main_info_button}>Перейти в каталог</button>
+          <Link to={"/catalog"}>
+            <button className={styles.main_info_button}>
+              Перейти в каталог
+            </button>
+          </Link>
         </div>
       </div>
       <div className={`${styles.line_bar_main} margin_left margin_right`}>
@@ -62,7 +65,16 @@ export const Main = () => {
             alt="rating"
           />
         </div>
-        {collection && <CardsList collection={collection} />}
+        {collection && <SwiperCards collection={collection} />}
+      </div>
+      <div className={styles.dilivery}>
+        <div className={styles.dilivery_right}>
+          <p className={styles.dilivery_promotion} >Акция</p>
+          <h2>
+            Бесплатная доставка<br />Элекстросамокатов<br />по России до 01.09
+          </h2>
+          <button className={styles.dilivery_more} >Подробнее</button>
+        </div>
       </div>
     </div>
   );

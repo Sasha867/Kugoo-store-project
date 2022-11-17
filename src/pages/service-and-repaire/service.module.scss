@@ -6,37 +6,37 @@
   background-color: #fff;
   padding: 30px 0;
 }
-.service_main {
+.container {
   display: flex;
   align-items: center;
   min-height: 421px;
-  background-image: url("../../../public/images/service\ and\ repaire.svg");
+  background-image: url("../../../public/images/service_and_repaire.png");
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0 30px;
 }
-.service_info {
+.container_info {
   display: flex;
   flex-direction: column;
-  max-width: 620px;
+  // max-width: 620px;
   width: 100%;
 }
-.service_tittle {
+.container_tittle {
   font-weight: 600;
   font-size: 35px;
   line-height: 51px;
   text-transform: uppercase;
   color: #ffffff;
 }
-.service_more_info {
+.container_more_info {
   font-size: 20px;
   line-height: 29px;
   color: #ffffff;
   margin-bottom: 25px;
 }
-.service_info_button {
+.container_button {
   max-width: 177px;
   height: 53px;
   background: #ffffff;
@@ -44,4 +44,26 @@
   font-size: 16px;
   line-height: 23px;
   color: #6f73ee;
+}
+
+.container_bar {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 40px;
+}
+.container_location {
+  display: flex;
+  margin-right: 40px;
+}
+.container_location_icon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 5px;
+  margin-right: 10px;
 }

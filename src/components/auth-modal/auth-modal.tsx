@@ -20,7 +20,6 @@ export const Modal = () => {
   const dispatch = useAppDispatch();
   const userLoginError = useSelector(getError);
   const user = useSelector(getUser);
-  console.log(userLoginError);
 
   useEffect(() => {
     if (user) {

@@ -6,6 +6,7 @@
   background-color: #fff;
   padding: 30px 0;
 }
+
 .main {
   display: flex;
   align-items: center;
@@ -146,4 +147,56 @@
   font-size: 16px;
   color: #282739;
   font-weight: 400;
+}
+
+.dilivery {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  max-width: 1380px;
+  min-height: 421px;
+  width: 100%;
+  background: url("../../../public/images/dron_1.png"),
+    url("../../../public/images/fon\ big.svg");
+  background-repeat: no-repeat;
+  margin: 0 auto;
+  /* margin: 0 30px 0 30px; */
+  margin-top: 50px;
+}
+
+.dilivery_right {
+  padding-right: 172px;
+}
+.dilivery_right h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 35px;
+  color: #ffffff;
+}
+.dilivery_promotion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 27px;
+  color: #ffffff;
+  width: 62px;
+  height: 27px;
+  background: #ee685f;
+  border-radius: 5px;
+  font-weight: normal;
+  font-size: 14px;
+}
+.dilivery_more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 27px;
+  width: 132px;
+  height: 53px;
+  background: #ffffff;
+  border-radius: 5px;
+  font-weight: normal;
+  font-size: 16px;
+  color: #282739;
 }

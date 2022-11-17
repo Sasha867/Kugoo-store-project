@@ -5,11 +5,9 @@ import styles from "./cooperation.module.scss";
 export const Cooperation = () => {
   const [isShouldChoice, setIsShouldChoice] = useState(false);
   const [isUserTel, setIsUserTel] = useState("");
-  console.log(isUserTel);
 
   const shouldChoice = () => {
     setIsShouldChoice((isShouldChoice) => !isShouldChoice);
-    console.log(isShouldChoice);
   };
 
   const telChangeHandler = ({ target: { value } }: any) => {

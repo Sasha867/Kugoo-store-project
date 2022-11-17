@@ -46,16 +46,14 @@ export const signInUser = createAsyncThunk<any, Credentials>(
       data.email,
       data.password
     );
-    console.log(resData);
-    
-    
+
     return resData;
   }
 );
 
 export const signOutUser = createAsyncThunk<any, any>(
   "users/signOut",
-  async (_: any, { rejectWithValue, fulfillWithValue }) => {
+  async () => {
     return await signOut(auth);
   }
 );
@@ -71,6 +69,7 @@ export const UserSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(registerUser.fulfilled, (state, action) => {
+        //:PayloadAction<User>: void
         state.user = action.payload.user;
         state.error = null;
       })
