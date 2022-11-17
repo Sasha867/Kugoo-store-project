@@ -1,4 +1,4 @@
-import { getDownloadURL, getStorage, ref } from "firebase/storage";
+// import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
@@ -19,6 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
+
 
 // const storage = getStorage(app);
 // const imagesRef = ref(storage, "Scooters_images");
@@ -46,23 +47,7 @@ export const db = getFirestore(app);
 
 export async function scootersRefAdd(): Promise<void> {
   await addDoc(collection(db, "products"), cardScooter);
-  // await setDoc(doc(db, "products", "cardScooter"), {
-  //   title: "Электросамокат Kugoo M4",
-  //   price: 800,
-  //   description: `Электросамокат Kugoo M4 – младшая модель электросамоката M4 Pro, отличающаяся
-  //     среди своих собратьев самой меньшей емкостью батареи. Благодаря этому устройство
-  //     облегченное. Его могут эксплуатировать дети и девушки. Даже при небольшом весе самокат
-  //     способен набрать скорость до 40 км/ч. Есть возможность установить ограничение этого
-  //     показателя для детей, чтобы самокат не разгонялся более 10–15 км/ч. Kugoo M4 отличный
-  //     самокат для езды по городским улицам и по пересеченной местности. Водитель в любых условиях
-  //     движения будет чувствовать себя максимально комфортно.`,
-  //   category: "urban scooter",
-  //   image: "https://",
-  //   rating: {
-  //     rate: 4.1,
-  //     count: 8,
-  //   },
-  // });
+  // await setDoc(doc(db, "products", "cardScooter"), cardScooter);
 }
 // console.log(scootersRefAdd());
 

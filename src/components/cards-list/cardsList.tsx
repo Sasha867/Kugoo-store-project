@@ -1,5 +1,5 @@
-import { CardGood } from "../card-good/cardGood";
-import { CardScooter } from "../constans/constans";
+import { CardProduct } from "../card-product/cardProduct";
+import { CardScooter } from "../constans/interfaces";
 import styles from "./cardsList.module.scss";
 
 type Props = {
@@ -7,11 +7,14 @@ type Props = {
 };
 
 export const CardsList = ({ collection }: Props) => {
+ 
   return (
-    <div className={styles.wrapper}>
+    <>
+      {/* <div className={styles.wrapper}> */}
       {collection.map((el) => (
-        <CardGood characteristics={el} />
+        <CardProduct specification={el} key={el.id} />
       ))}
-    </div>
+      {/* </div> */}
+    </>
   );
 };

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from "react"
 import { FaRegUser } from "react-icons/fa";
 import { IoIosCart } from "react-icons/io";
 import { useSelector } from "react-redux";
@@ -25,7 +25,6 @@ export const AcountBar = () => {
 
   const toggleisOpenModal = () => {
     dispatch(openModal());
-    console.log(user);
   };
 
   const logoutHandler = () => {
@@ -41,8 +40,12 @@ export const AcountBar = () => {
   });
 
   const onClickCloseToolsAuth = ({ target: { id } }: any) => {
-    console.log(id);
-    if (id === "toolsAuth" || id === "acaunt" || id === "user_bar") {
+    if (
+      id === "toolsAuth" ||
+      id === "acaunt" ||
+      id === "user_bar" ||
+      id === "userIcon"
+    ) {
       dispatch(openAcaunt());
     } else {
       dispatch(closeAcaunt());
@@ -56,7 +59,7 @@ export const AcountBar = () => {
       className={styles.wrapper}
     >
       <div className={styles.user_bar} id="user_bar">
-        <FaRegUser className={styles.user_icon} />
+        <FaRegUser id="userIcon" className={styles.user_icon} />
         <span className={styles.user_email}>{userEmailDisplay}</span>
         <div>{}</div>
         {!user && (

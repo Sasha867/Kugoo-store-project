@@ -68,6 +68,80 @@ hr {
   }
 }
 
+// #app { height: 100% }
+// html,
+// body {
+//   position: relative;
+//   height: 100%;
+// }
+
+// body {
+//   background: #eee;
+//   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+//   font-size: 14px;
+//   color: #000;
+//   margin: 0;
+//   padding: 0;
+// }
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 25px !important;
+  padding: 8px;
+  color: #fff;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  background-color: #6f73ee;
+  transition: 0.5s;
+}
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: #fff;
+  
+}
+
+// $maxWidth: 1440;
+// @mixin adaptiv-font($pcSize, $mobSize) {
+// 	$addSize: $pcSize - $mobSize;
+// 	$maxWidth: $maxWidth - 320;
+// 	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+// }
+
+
 // @media (max-width: 400px) {
 //   .container_label_right {
 //     display: inline-block;

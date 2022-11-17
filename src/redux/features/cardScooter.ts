@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { collection, getDocs } from "firebase/firestore";
-import { CardScooter } from "../../components/constans/constans";
+import { CardScooter } from "../../components/constans/interfaces";
 import { db } from "../../firebase/firebase";
 
 export interface CardsGoods {
@@ -14,9 +14,11 @@ const initialState: CardsGoods = {
 export const getCardsGoods = createAsyncThunk<any, any>(
   "cards/get",
   async () => {
-    const arrayCardsScooter: any[] = [];
+    const arrayCardsScooter: object[] = [];
     const resData = await getDocs(collection(db, "products"));
-    resData.forEach((el) => arrayCardsScooter.push(el.data()));
+    resData.forEach((el) => {
+      arrayCardsScooter.push({ ...el.data(), id: el.id });
+    });
     console.log(arrayCardsScooter);
 
     return arrayCardsScooter;

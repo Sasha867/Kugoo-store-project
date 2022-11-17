@@ -8,7 +8,7 @@ import { closeRequestCall } from "../../redux/features/visibleSlice";
 export const RequestACall = () => {
   const [isShouldChoice, setIsShouldChoice] = useState(false);
   const [isUserTel, setIsUserTel] = useState("");
-  console.log(isUserTel);
+
 
   const dispatch = useDispatch();
 
@@ -22,7 +22,6 @@ export const RequestACall = () => {
 
   const shouldChoice = () => {
     setIsShouldChoice((prev: boolean) => !prev);
-    console.log(isShouldChoice);
   };
 
   const clickHandler = ({ target: { id } }: any) => {

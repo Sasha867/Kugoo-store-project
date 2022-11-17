@@ -6,7 +6,7 @@ import {
   isOpenRequestCall,
 } from "../../redux/selectors/selectors";
 import { openRequestCall } from "../../redux/features/visibleSlice";
-import { Modal } from "../auth-modal/auth-modal-window";
+import { Modal } from "../auth-modal/auth-modal";
 import { Link } from "react-router-dom";
 import styles from "./footer.module.scss";
 
