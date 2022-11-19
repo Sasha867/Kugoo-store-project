@@ -47,3 +47,6 @@ export const OrderProductSlice = createSlice({
 // await setDoc(doc(db, "products", "cardScooter"), cardScooter);   ///////
 //   }
 // console.log(scootersRefAdd());
+
+export const {addOrder} = OrderProductSlice.actions;
+export default OrderProductSlice.reducer;

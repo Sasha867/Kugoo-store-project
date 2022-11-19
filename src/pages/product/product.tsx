@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { IMG_NOPHOTO, URL_STORAGE } from "../../components/constans/constans";
+import { SwiperProduct } from "../../components/swiper-product/swiperProduct";
 import { addProduct } from "../../redux/features/cart";
 import { getProductUser } from "../../redux/features/userProduct";
 import { getUserProduct } from "../../redux/selectors/selectors";
@@ -20,22 +21,17 @@ export const Product = () => {
   }, [dispatch, id]);
 
   function addToCartProduct() {
-    if (userProduct) {   //null
-      dispatch(addProduct(userProduct));   
+    if (userProduct) {
+      //null
+      dispatch(addProduct(userProduct));
     }
   }
 
   return (
     <div className={`${styles.wrapper} margin_right margin_left`}>
       <div className={styles.container_product}>
-        <div>
-          <img
-            className={styles.left_bar_img}
-            src={`${URL_STORAGE}${
-              userProduct?.images ? userProduct?.images[0] : IMG_NOPHOTO
-            }?alt=media `}
-            alt=""
-          />
+        <div className={styles.left_bar_img}>
+          <SwiperProduct images={userProduct?.images || []} />
         </div>
         <div className={styles.right_bar}>
           <div className={styles.product_info}>

@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { IoIosCart } from "react-icons/io";
 import { useSelector } from "react-redux";

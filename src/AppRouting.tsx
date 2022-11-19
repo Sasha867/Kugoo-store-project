@@ -5,7 +5,6 @@ import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ShoppingCart } from "./pages/shopping-cart/shoppingCart";
-import { Modal } from "./components/auth-modal/auth-modal";
 import { Cooperation } from "./pages/cooperation/cooperation";
 import { AboutShop } from "./pages/about-shop/aboutShop";
 import { Catalog } from "./pages/catalog/catalog";
@@ -17,7 +16,6 @@ function App() {
       <Header />
       <Routes>
         <Route path="/cooperation" element={<Cooperation />} />
-        <Route path="/modal" element={<Modal />} />
         <Route path="/" element={<Main />} />
         <Route path="/service" element={<ServiceAndRepaire />} />
         <Route path="/cart" element={<ShoppingCart />} />

@@ -33,8 +33,8 @@ export const methodsPayIcons: object[] = [
 
 export const cardScooter: CardScooter = {
   title: "",
-  price: "",
-  stockPrice: "",
+  price: 0,
+  stockPrice: 0,
   battery: "",
   maxSpeed: "",
   power: "",
@@ -53,5 +53,9 @@ export const cardScooter: CardScooter = {
 
 export const URL_STORAGE =
   "https://firebasestorage.googleapis.com/v0/b/kugoo-project.appspot.com/o/";
+
+export const getImageUrl = (url: string) => {
+  return `${URL_STORAGE}${url ? url : IMG_NOPHOTO}?alt=media`;
+};
 
 export const IMG_NOPHOTO = "image_not_found%2FNo_Photo.png";

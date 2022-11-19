@@ -1,16 +1,20 @@
 import { AcountButton } from "../acount-button/acountButton";
 import { Link } from "react-router-dom";
-import styles from "./header.module.scss";
+import { FcClock } from "react-icons/fc";
+import { RiMenuAddLine } from "react-icons/ri";
 import { FaViber, FaTelegram, FaWhatsapp } from "react-icons/fa";
-import { IoIosArrowDropup, IoIosCart } from "react-icons/io";
+import { IoIosCart } from "react-icons/io";
 import { RequestACall } from "../../pages/request-a-call/requestACall";
 import { useDispatch, useSelector } from "react-redux";
 import { openRequestCall } from "../../redux/features/visibleSlice";
-import { isOpenRequestCall } from "../../redux/selectors/selectors";
+import { getProduct, isOpenRequestCall } from "../../redux/selectors/selectors";
+import styles from "./header.module.scss";
 
 export const Header = () => {
   const visibleState = useSelector(isOpenRequestCall);
   const dispatch = useDispatch();
+
+  const cartProductArr = useSelector(getProduct);
 
   const toggleRequestCall = () => {
     dispatch(openRequestCall());
@@ -24,15 +28,15 @@ export const Header = () => {
             <li className={styles.item}>
               <Link to={"/service"}>Сервис</Link>
             </li>
-            <li className={styles.item}>
+            <li>
               <Link to={"/cooperation"}>Сотрудничество</Link>
             </li>
-            <li className={styles.item}>
+            <li>
               <div className={"cursor_pointer"} onClick={toggleRequestCall}>
                 Заказать звонок
               </div>
             </li>
-            <li className={styles.networks}>
+            <li>
               <a
                 href="https://www.whatsapp.com/"
                 target="_blank"
@@ -57,7 +61,8 @@ export const Header = () => {
           <a className={styles.number} href="tel:+375(29)">
             +375(29)777-77-77
           </a>
-          <IoIosArrowDropup className={styles.icon_arrow} />
+          <FcClock className={styles.icon_arrow} />
+           <span>с 8.00 до 22.00</span> 
         </div>
       </div>
       <div className={styles.nav_center}>
@@ -70,7 +75,7 @@ export const Header = () => {
             </li>
             <li>
               <Link to={"/catalog"} className={styles.catalog}>
-                Каталог{" "}
+                <RiMenuAddLine className={styles.catalog_icon} /> Каталог{" "}
               </Link>
             </li>
           </ul>
@@ -91,7 +96,10 @@ export const Header = () => {
         <div className={`${styles.wrapper_cart} margin_right`}>
           <Link to={"/cart"} className={styles.cart_button}>
             <IoIosCart className={styles.cart_icon} />
-            Корзина
+            Корзина{" "}
+            <span className={styles.number_items_in_cart}>
+              {cartProductArr.length}
+            </span>
           </Link>
         </div>
       </div>

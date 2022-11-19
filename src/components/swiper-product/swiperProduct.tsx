@@ -1,47 +1,60 @@
-import { useState } from "react";
+import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import styles from "./swiperProduct.module.scss";
 
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-
-import "./styles.css";
-
-// import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper";
+import { getImageUrl, URL_STORAGE } from "../constans/constans";
 
-export default function App() {
+type Props = {
+  images: string[];
+};
+
+export const SwiperProduct = ({ images }: Props) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
     <>
       <Swiper
         // style={{
-        //   "--swiper-navigation-color": "#fff",
+        //   // "--swiper-navigation-color": "#fff",
         //   "--swiper-pagination-color": "#fff",
         // }}
+        loop={true}
         spaceBetween={10}
         navigation={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper2"
+        className={styles.wrapper}
       >
-        <SwiperSlide></SwiperSlide>
+        {images.map((el) => (
+          <SwiperSlide>
+            <img src={getImageUrl(el)} alt="" />
+          </SwiperSlide>
+        ))}
       </Swiper>
       <Swiper
-        // onSwiper={setThumbsSwiper}
+        //@ts-ignore
+        onSwiper={setThumbsSwiper}
+        loop={true}
         spaceBetween={10}
         slidesPerView={4}
         freeMode={true}
         watchSlidesProgress={true}
         modules={[FreeMode, Navigation, Thumbs]}
-        className="mySwiper"
+        className={styles.swiper_tabs_wrapper}
       >
-        <SwiperSlide></SwiperSlide>
+        {images.map((el) => (
+          <SwiperSlide>
+            <img src={getImageUrl(el)} alt="" />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </>
   );
-}
+};

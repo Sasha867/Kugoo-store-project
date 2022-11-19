@@ -46,9 +46,9 @@ export const Footer = () => {
         <div className={styles.container_left_lists}>
           <div className={styles.list}>
             <h6 className={styles.tittle_h6}>Каталог тваров</h6>
-            <a className={styles.list_item} href="#">
+            <Link to={"/catalog"} className={styles.list_item} >
               Электросамокаты
-            </a>
+            </Link>
             <a className={styles.list_item} href="#">
               Электроскутеры
             </a>

@@ -1,4 +1,4 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { collection, getDocs } from "firebase/firestore";
 import { CardScooter } from "../../components/constans/interfaces";
 import { db } from "../../firebase/firebase";
@@ -8,7 +8,7 @@ export interface CardsGoods {
 }
 
 const initialState: CardsGoods = {
-  cardsScooterCollection: null,
+  cardsScooterCollection: [],
 };
 
 export const getCardsGoods = createAsyncThunk<any, any>(
@@ -17,6 +17,7 @@ export const getCardsGoods = createAsyncThunk<any, any>(
     const arrayCardsScooter: object[] = [];
     const resData = await getDocs(collection(db, "products"));
     resData.forEach((el) => {
+      console.log(el.id);
       arrayCardsScooter.push({ ...el.data(), id: el.id });
     });
     console.log(arrayCardsScooter);
@@ -30,9 +31,12 @@ export const CardsScootersSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(getCardsGoods.fulfilled, (state, action) => {
-      state.cardsScooterCollection = action.payload;
-    });
+    builder.addCase(
+      getCardsGoods.fulfilled,
+      (state, action: PayloadAction<CardScooter[]>) => {
+        state.cardsScooterCollection = action.payload;
+      }
+    );
   },
 });
 
