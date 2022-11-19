@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import cardsScootersStateReducer from "./features/cardScooter";
 import userProductStateReducer from "./features/userProduct";
 import cartProductStateReducer from "./features/cart";
+import orderProductStateReducer from "./features/order";
 
 export const useAppDispatch = () => useDispatch<typeof store.dispatch>();
 
@@ -14,7 +15,8 @@ export const store = configureStore({
     userState: userStateReducer,
     cardsScootersState: cardsScootersStateReducer,
     userProductState: userProductStateReducer,
-    cartProductState: cartProductStateReducer, 
+    cartProductState: cartProductStateReducer,
+    orderProductState: orderProductStateReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -71,7 +71,9 @@ export const Modal = () => {
   return (
     <div id="modal" className={styles.wrapper_modal} onClick={onOverlayClick}>
       <div className={styles.modal}>
-        <h2 className={styles.title_modal}>{isRegisterState ? "Региcтрация" : "Вход"}</h2>
+        <h2 className={styles.title_modal}>
+          {isRegisterState ? "Региcтрация" : "Вход"}
+        </h2>
         <span
           style={{ color: "red", fontStyle: "italic", fontFamily: "revert" }}
         >
@@ -115,9 +117,7 @@ export const Modal = () => {
           {isRegisterState ? "Регистрация" : "Войти"}
         </button>
         <button
-          onClick={() => {
-            changeToRegisterState();
-          }}
+          onClick={changeToRegisterState}
           id="create_ac"
           className={styles.modal_registration_str}
         >

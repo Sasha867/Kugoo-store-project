@@ -1,44 +1,111 @@
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 30px 30px;
 }
 
 .container_main {
   display: flex;
-  flex-direction: column;
-  max-width: 900px;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
   border: 1px solid #eaebed;
-  padding: 30px;
+  padding: 20px;
   box-shadow: 1px 3px 3px #00000014;
+  @media (max-width: 542px) {
+    justify-content: center;
+  }
 }
 
 .container_right_part {
   display: flex;
-  justify-content: end;
   flex-direction: column;
+  max-width: 70%;
+  width: 100%;
+  @media (max-width: 540px) {
+    max-width: 100%;
+    margin-top: 20px;
+    font-size: 12px;
+    width: 400px;
+  }
 }
+
 .right_part_title {
   display: flex;
   justify-content: end;
-  width: 100%;
-  text-decoration: underline;
-  margin-right: 50px;
 }
 
-.right_part_title h6 {
-  font-size: 14px;
-  padding: 15px 20px;
+.right_part_title span {
+  display: flex;
+  justify-content: center;
+  font-size: 15px;
+  margin-right: 10px;
   color: #777777;
+  max-width: 160px;
+  width: 100%;
 }
 
 .right_part_specification {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 100%;
+}
+
+.right_part_product_title {
+  text-decoration: underline;
+  color: var(--purple);
+  &:hover {
+    color: #ee685f;
+  }
+  cursor: pointer;
+}
+
+.right_part_specification span {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  max-width: 160px;
+  width: 100%;
+}
+
+.counter_wrapper {
+  display: flex;
+  justify-content: center;
+  margin-right: 10px;
+  max-width: 160px;
+  width: 100%;
+}
+.counter {
+  display: flex;
+  align-items: center;
+}
+
+.btn_plus {
+  display: flex;
+  background: none;
+  font-size: 30px;
+}
+.btn_minus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f05c52;
+  font-size: 20px;
+  padding: 6px;
+  width: 26px;
+  height: 26px;
+  color: #ffff;
+  border-radius: 50%;
+}
+.count {
+  font-weight: 600;
+  margin: 12px;
 }
 
 .container_left_part {
   display: flex;
   align-items: center;
+  justify-content: start;
 }
 
 .btn_remove {
@@ -46,24 +113,16 @@
 }
 
 .remove_icon {
-  width: 20px;
-  height: 20px;
+  width: 26px;
+  height: 26px;
 }
 
 .img {
-  max-width: 200px;
-  max-height: 200px;
-  margin: 15px 10px;
-}
-
-.container_btn{
-  display: flex;
-  justify-content: space-between;
-  padding: 15px 10px 0px;
-}
-.container_btn button{
-  font-size: 14px;
-  padding: 6px 10px;
-  color: #ffff;
-  background-color: var(--purple);
+  max-width: 80px;
+  max-height: 80px;
+  margin-left: 15px;
+  @media (max-width: 542px) {
+    max-width: 200px;
+    max-height: 200px;
+  }
 }

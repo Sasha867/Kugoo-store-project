@@ -1,8 +1,8 @@
 export interface CardScooter {
   title: string;
-  price: string;
+  price: number;
   popular: string;
-  stockPrice: string;
+  stockPrice: number;
   battery: string;
   maxSpeed: string;
   power: string;

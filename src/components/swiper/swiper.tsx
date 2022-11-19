@@ -18,11 +18,11 @@ export default function App({ collection }: Props) {
   return (
     <>
       <Swiper
-        slidesPerView={4}
+        slidesPerView={"auto"}
         spaceBetween={25}
         slidesPerGroup={2}
         autoplay={{
-          delay: 2300,
+          delay: 3000,
           disableOnInteraction: false,
         }}
         // loop={true}
@@ -32,10 +32,9 @@ export default function App({ collection }: Props) {
         }}
         navigation={true}
         modules={[Pagination, Navigation, Autoplay]}
-        className="mySwiper"
       >
         {collection.map((el) => (
-          <SwiperSlide className={styles.wraper} key={el.id}>
+          <SwiperSlide className={styles.wrapper} key={el.id}>
             <CardProduct specification={el} />
           </SwiperSlide>
         ))}

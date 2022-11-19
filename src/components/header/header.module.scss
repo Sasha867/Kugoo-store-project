@@ -26,8 +26,9 @@ header {
   align-items: center;
 }
 
-.item {
+.nav_right ul li {
   margin-right: 30px;
+  font-size: 14px;
 }
 
 .whatsappIcon {
@@ -49,6 +50,7 @@ header {
 .number {
   margin-right: 9px;
   font-weight: 500;
+  font-size: 14px;
   color: #282739;
 }
 .nav_left {
@@ -95,18 +97,16 @@ header {
   background: var(--purple);
   color: #ffffff;
   font-family: Jost;
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
 }
-.catalog::before {
-  content: "";
-  width: 13px;
-  height: 13px;
-  margin: 15px 13px 15px 15px;
-  background-image: url("../../../public/images/list\ catalog.svg");
+.catalog_icon {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  margin: 10px 13px 10px 15px;
 }
-// catalog.svg
+
 .nav_search li {
   list-style: none;
 }
@@ -211,6 +211,22 @@ header {
   color: #282739;
   padding: 10px;
 }
+
+.number_items_in_cart {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 1px;
+  width: 16px;
+  height: 16px;
+  border-radius: 20px;
+  background-color: #ee685f;
+  color: #fff;
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
 .cart_icon {
   color: var(--purple);
   margin-right: 8px;
@@ -250,6 +266,7 @@ header {
 }
 
 .icon_arrow {
+  margin-right: 5px;
   color: #5d6c7b;
   cursor: pointer;
   width: 15px;
@@ -271,6 +288,10 @@ header {
 }
 @media (max-width: 750px) {
   .nav_choice {
+    justify-content: center;
+  }
+  .nav_center,
+  .nav {
     justify-content: center;
   }
 }

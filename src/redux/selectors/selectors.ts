@@ -1,3 +1,4 @@
+import { get } from "https";
 import { RootState } from "../store";
 
 export const isOpenRequestCall = (state: RootState) =>
@@ -18,5 +19,15 @@ export const getCardsCollection = (state: RootState) =>
 export const getUserProduct = (state: RootState) =>
   state.userProductState.userProduct;
 
-export const getProduct = (state: RootState) =>
-  state.cartProductState.cart;
+export const getProduct = (state: RootState) => state.cartProductState.cart;
+
+export const getTotalCartPrice = (state: RootState): number => {
+  let totalPrice = 0;
+  state.cartProductState.cart.forEach((el) => {
+    totalPrice +=
+      (+el.product.stockPrice ? +el.product.stockPrice : +el.product.price) *
+      el.count;
+  });
+
+  return totalPrice;
+};
