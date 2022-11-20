@@ -83,7 +83,9 @@ export const AcountBar = () => {
       <hr className={styles.hr} />
       <div className={styles.user_select}>
         <span>Личные данные</span>
-        <span>История покупок</span>
+        <Link to={"/history"}>
+          <span>История покупок</span>
+        </Link>
         <hr className={styles.hr} />
         {user && (
           <button onClick={logoutHandler} className={styles.userSignOutBtn}>

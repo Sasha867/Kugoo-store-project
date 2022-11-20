@@ -7,14 +7,48 @@ import { IoIosCart } from "react-icons/io";
 import { RequestACall } from "../../pages/request-a-call/requestACall";
 import { useDispatch, useSelector } from "react-redux";
 import { openRequestCall } from "../../redux/features/visibleSlice";
-import { getProduct, isOpenRequestCall } from "../../redux/selectors/selectors";
+import {
+  getCardsCollection,
+  getProduct,
+  isOpenRequestCall,
+} from "../../redux/selectors/selectors";
 import styles from "./header.module.scss";
+import { useState } from "react";
 
 export const Header = () => {
+  const [searchProduct, setSearchProduct] = useState("");
   const visibleState = useSelector(isOpenRequestCall);
   const dispatch = useDispatch();
 
   const cartProductArr = useSelector(getProduct);
+  const cardsCollection = useSelector(getCardsCollection);
+  console.log(cardsCollection);
+  console.log(searchProduct);
+
+  console.log(cartProductArr);
+
+  function findProductChangeHandler({ target: { value } }: any) {
+    console.log(value);
+
+    setSearchProduct(value);
+  }
+
+  const showResultSearch = () => {
+    if (cardsCollection && searchProduct) {
+      const searchItems = cardsCollection.filter((el) =>
+        el.title.toUpperCase().includes(searchProduct.toUpperCase())
+      );
+      if (searchItems) {
+        return searchItems;
+      }
+      return [];
+    }
+    return [];
+  };
+
+  const closeResults = () => {
+    setSearchProduct("");
+  };
 
   const toggleRequestCall = () => {
     dispatch(openRequestCall());
@@ -62,7 +96,7 @@ export const Header = () => {
             +375(29)777-77-77
           </a>
           <FcClock className={styles.icon_arrow} />
-           <span>с 8.00 до 22.00</span> 
+          <span>с 8.00 до 22.00</span>
         </div>
       </div>
       <div className={styles.nav_center}>
@@ -80,16 +114,26 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <form className={styles.form_wrap} action="get">
+        <div className={styles.input_wrap}>
           <input
             className={styles.main_search}
             type="text"
-            // value={}
+            value={searchProduct}
+            onChange={findProductChangeHandler}
             placeholder="Искать в Каталоге. Например, KugooKirin M4"
           />
-          {/* <div className={styles.input_left_search}>Везде</div> */}
+
+          {showResultSearch().length && (
+            <div className={styles.results}>
+              {showResultSearch().map((el) => (
+                <Link onClick={closeResults} to={"/product/" + el.id}>
+                  {el.title}
+                </Link>
+              ))}
+            </div>
+          )}
           <button className={styles.input_right_search}></button>
-        </form>
+        </div>
         <div className={styles.wrapper_acaunt}>
           <AcountButton />
         </div>

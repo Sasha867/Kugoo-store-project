@@ -3,14 +3,30 @@ import "./App.scss";
 import { Main } from "./pages/main/main";
 import { Footer } from "./components/footer/footer";
 import { Header } from "./components/header/header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ShoppingCart } from "./pages/shopping-cart/shoppingCart";
 import { Cooperation } from "./pages/cooperation/cooperation";
 import { AboutShop } from "./pages/about-shop/aboutShop";
 import { Catalog } from "./pages/catalog/catalog";
 import { Product } from "./pages/product/product";
+import { useEffect } from "react";
+import { auth } from "./firebase/firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { useAppDispatch } from "./redux/store";
+import { setUser } from "./redux/features/user";
+import { PurchaseHistory } from "./pages/purchase-history/purchaseHistory";
 
 function App() {
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        console.log(user);
+        
+        dispatch(setUser(user));
+      }
+    });
+  }, []);
   return (
     <BrowserRouter>
       <Header />
@@ -22,7 +38,9 @@ function App() {
         <Route path="/about_shop" element={<AboutShop />} />
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/product/:id" element={<Product />} />
-      </Routes>
+        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="/history" element={<PurchaseHistory/>}/>      
+        </Routes>
       <Footer />
     </BrowserRouter>
   );

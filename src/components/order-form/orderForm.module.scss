@@ -1,0 +1,42 @@
+.order_form {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding-bottom: 20px;
+  .field {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: calc(50% - 20px);
+   small{
+    color: #ee685f;
+   }
+  }
+  label{
+    margin-bottom: 4px;
+  }
+  input {
+    height: 28px;
+    border: 1px solid var(--purple);
+    border-radius: 8px;
+    padding-left: 10px;
+    height: 38px;
+    &:focus{
+        outline: 2px solid var(--purple);
+        caret-color: var(--purple);
+        font-size: 17px;
+    }
+  }
+  button {
+    padding: 5px 10px;
+    max-height: 35px;
+    background-color: var(--purple);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: auto 10px 10px auto;
+    &:disabled{
+        opacity: 0.5;
+    }
+  }
+}
