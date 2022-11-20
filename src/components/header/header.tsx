@@ -80,14 +80,14 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <form className={styles.bar} action="get">
+        <form className={styles.form_wrap} action="get">
           <input
             className={styles.main_search}
             type="text"
             // value={}
-            placeholder="Искать самокат KUGOO"
+            placeholder="Искать в Каталоге. Например, KugooKirin M4"
           />
-          <div className={styles.input_left_search}>Везде</div>
+          {/* <div className={styles.input_left_search}>Везде</div> */}
           <button className={styles.input_right_search}></button>
         </form>
         <div className={styles.wrapper_acaunt}>

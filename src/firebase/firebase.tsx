@@ -45,11 +45,11 @@ export const db = getFirestore(app);
 // );
 // console.log(gsReference);
 
-export async function scootersRefAdd(): Promise<void> {
+export async function AddOrder(): Promise<void> {
   await addDoc(collection(db, "products"), cardScooter);
   // await setDoc(doc(db, "products", "cardScooter"), cardScooter);
 }
-// console.log(scootersRefAdd());
+// console.log(AddOrder());
 
 // export async function scootersRefGet(): Promise<object> {
 //   return await getDocs(collection(db, "products"));
