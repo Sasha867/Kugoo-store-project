@@ -22,31 +22,25 @@ export const Header = () => {
 
   const cartProductArr = useSelector(getProduct);
   const cardsCollection = useSelector(getCardsCollection);
-  console.log(cardsCollection);
-  console.log(searchProduct);
-
-  console.log(cartProductArr);
 
   function findProductChangeHandler({ target: { value } }: any) {
-    console.log(value);
-
     setSearchProduct(value);
   }
 
   const showResultSearch = () => {
     if (cardsCollection && searchProduct) {
-      const searchItems = cardsCollection.filter((el) =>
+      const listProducts = cardsCollection.filter((el) =>
         el.title.toUpperCase().includes(searchProduct.toUpperCase())
       );
-      if (searchItems) {
-        return searchItems;
+      if (listProducts) {
+        return listProducts;
       }
       return [];
     }
     return [];
   };
 
-  const closeResults = () => {
+  const closeResultsSearch = () => {
     setSearchProduct("");
   };
 
@@ -96,7 +90,7 @@ export const Header = () => {
             +375(29)777-77-77
           </a>
           <FcClock className={styles.icon_arrow} />
-          <span>с 8.00 до 22.00</span>
+          <span>с 10.00 до 22.00</span>
         </div>
       </div>
       <div className={styles.nav_center}>
@@ -122,11 +116,10 @@ export const Header = () => {
             onChange={findProductChangeHandler}
             placeholder="Искать в Каталоге. Например, KugooKirin M4"
           />
-
           {showResultSearch().length && (
             <div className={styles.results}>
               {showResultSearch().map((el) => (
-                <Link onClick={closeResults} to={"/product/" + el.id}>
+                <Link onClick={closeResultsSearch} to={"/product/" + el.id}>
                   {el.title}
                 </Link>
               ))}

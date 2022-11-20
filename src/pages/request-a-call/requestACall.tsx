@@ -4,11 +4,14 @@ import { GrCheckbox, GrCheckboxSelected } from "react-icons/gr";
 import { useDispatch } from "react-redux";
 import styles from "./requestACall.module.scss";
 import { closeRequestCall } from "../../redux/features/visibleSlice";
+import { RequestCall } from "../../components/constans/interfaces";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../../firebase/firebase";
 
 export const RequestACall = () => {
   const [isShouldChoice, setIsShouldChoice] = useState(false);
   const [isUserTel, setIsUserTel] = useState("");
-
+  console.log(isUserTel);
 
   const dispatch = useDispatch();
 
@@ -17,6 +20,7 @@ export const RequestACall = () => {
   };
 
   const isRequestCall = () => {
+    addRequest();
     dispatch(closeRequestCall());
   };
 
@@ -29,6 +33,14 @@ export const RequestACall = () => {
       dispatch(closeRequestCall());
     }
   };
+
+  async function addRequest() {
+    const request: RequestCall = {
+      tel: isUserTel,
+    };
+    await addDoc(collection(db, "RequestCall"), request);
+    setIsUserTel("");
+  }
 
   return (
     <div
@@ -44,20 +56,27 @@ export const RequestACall = () => {
           <span className={styles.request_call_info_answer}>
             ответит на все вопросы и проконсультирует по продуктам Kugoo
           </span>
-          <form action="">
-            <input
-              className={styles.request_call_input}
-              type="tel"
-              name="tel"
-              value={isUserTel}
-              onChange={telChangeHandler}
-              autoFocus
-              pattern="^(\+375|80)(29|25|44|33)(\d{3})(\d{2})(\d{2})$"
-              placeholder="+375(29/44/25/33)000-00-00"
-            />
-            <button className={styles.request_call_button}>
-              Позвоните мне
-            </button>
+          <form>
+            <fieldset>
+              <input
+                className={styles.request_call_input}
+                type="tel"
+                name="tel"
+                value={isUserTel}
+                onChange={telChangeHandler}
+                pattern="^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$"
+                placeholder="+375(ХХ)777-77-77"
+                required
+                autoFocus
+              />
+              <button
+                disabled={!isShouldChoice}
+                onClick={isRequestCall}
+                className={styles.request_call_button}
+              >
+                Позвоните мне
+              </button>
+            </fieldset>
           </form>
           <div className={styles.request_call_info_agreement_wrapper}>
             <div onClick={shouldChoice}>

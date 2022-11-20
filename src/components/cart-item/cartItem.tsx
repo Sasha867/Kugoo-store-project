@@ -16,9 +16,10 @@ import { getProductUser } from "../../redux/features/userProduct";
 type Props = {
   card: CartObject;
   id: string;
+  isHistory?: true;
 };
 
-export const CartItem = ({ card, id }: Props) => {
+export const CartItem = ({ card, id, isHistory }: Props) => {
   const dispatch = useAppDispatch();
   console.log(id);
 
@@ -48,9 +49,11 @@ export const CartItem = ({ card, id }: Props) => {
     <div className={styles.wrapper}>
       <div className={styles.container_main}>
         <div className={styles.container_left_part}>
-          <button onClick={removeItem} className={styles.btn_remove}>
-            <AiFillCloseSquare className={styles.remove_icon} />
-          </button>
+          {!isHistory && (
+            <button onClick={removeItem} className={styles.btn_remove}>
+              <AiFillCloseSquare className={styles.remove_icon} />
+            </button>
+          )}
           <img
             className={styles.img}
             src={`${URL_STORAGE}${
@@ -80,20 +83,24 @@ export const CartItem = ({ card, id }: Props) => {
                 : card.product.price}{" "}
               byn
             </span>
-            <div className={styles.counter_wrapper}>
-              <div className={styles.counter}>
-                <button className={styles.btn_plus} onClick={increaseAmount}>
-                  <FcPlus />
-                </button>
-                <span className={styles.count}>{card.count}</span>
-                <button
-                  className={styles.btn_minus}
-                  onClick={cartdecreaseAmount}
-                >
-                  <ImMinus style={{ color: "white" }} />
-                </button>
+            {isHistory ? (
+              <span className={styles.count}>{card.count}</span>
+            ) : (
+              <div className={styles.counter_wrapper}>
+                <div className={styles.counter}>
+                  <button className={styles.btn_plus} onClick={increaseAmount}>
+                    <FcPlus />
+                  </button>
+                  <span className={styles.count}>{card.count}</span>
+                  <button
+                    className={styles.btn_minus}
+                    onClick={cartdecreaseAmount}
+                  >
+                    <ImMinus style={{ color: "white" }} />
+                  </button>
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
 

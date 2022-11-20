@@ -39,7 +39,9 @@ export const ShoppingCart = () => {
     const order: Order = {
       totalPrice: totalPrice,
       userProducts: cartProduct,
-      userInformation: { ...values, userId: user?.uid || "" },
+      userInformation: values,
+      userId: user?.uid || "",
+      createdAt: new Date().getTime(),
     };
     await addDoc(collection(db, "Orders"), order);
     dispatch(resetCart());

@@ -1,6 +1,10 @@
 import { collection, getDocs, query, where } from "firebase/firestore";
-import { useEffect } from "react";
+import { format, setDefaultOptions } from "date-fns";
+import { ru } from "date-fns/locale";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { CartItem } from "../../components/cart-item/cartItem";
+import { Order } from "../../components/constans/interfaces";
 import { db } from "../../firebase/firebase";
 import { getUser } from "../../redux/selectors/selectors";
 import styles from "./purchaseHistory.module.scss";
@@ -8,26 +12,38 @@ import styles from "./purchaseHistory.module.scss";
 export const PurchaseHistory = () => {
   const user = useSelector(getUser);
 
+  const [history, setHistory] = useState<Order[]>([]);
+
   useEffect(() => {
-    // getDocs(collection(db, "Orders")).then((res) => console.log(res));
-    // query(collection(db, "cities"), where("capital", "==", true));
     const ordersRef = collection(db, "Orders");
-
-    if(user?.uid){
-        console.log(user.uid);
-        
-        getDocs(
-          query(collection(db, "Orders", "userInformation"), where("email", "==", user.email))
-        ).then((res) => {
-          res.forEach((el) => console.log(el.data()));
-        });
-
+    setDefaultOptions({ locale: ru });
+    if (user) {
+      console.log(user.uid);
+      let historyArray: Order[] = [];
+      getDocs(
+        query(collection(db, "Orders"), where("userId", "==", user.uid))
+      ).then((res) => {
+        // @ts-ignore
+        res.forEach((el) => historyArray.push(el.data()));
+        setHistory(historyArray);
+      });
     }
   }, [user]);
 
   return (
     <div className={styles.wrapper}>
-      <h1>hi</h1>
+      {history.map((el: Order) => {
+        return (
+          <div>
+            <span>
+              {format(new Date(el.createdAt), "dd.MMM yyyy EEEE/kk-mm-ss ")}
+            </span>
+            {el.userProducts.map((product) => (
+              <CartItem card={product} id={""} isHistory={true} />
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 };

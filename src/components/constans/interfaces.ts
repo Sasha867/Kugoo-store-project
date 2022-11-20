@@ -24,11 +24,16 @@ export interface Order {
   userInformation: UserInformation;
   userProducts: CartObject[];
   totalPrice: number;
+  userId: string;
+  createdAt: number;
 }
 
 export interface UserInformation {
   adress: string;
   email: string;
   phone: string;
-  userId?: string;
+}
+
+export interface RequestCall {
+  tel: string;
 }
