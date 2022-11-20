@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
-import { IMG_NOPHOTO, URL_STORAGE } from "../../components/constans/constans";
 import { SwiperProduct } from "../../components/swiper-product/swiperProduct";
 import { addProduct } from "../../redux/features/cart";
 import { getProductUser } from "../../redux/features/userProduct";

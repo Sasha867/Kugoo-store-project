@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartItem } from "../../components/cart-item/cartItem";
@@ -8,18 +9,25 @@ import { useAppDispatch } from "../../redux/store";
 import styles from "./shoppingCart.module.scss";
 
 export const ShoppingCart = () => {
+  const [isOpenFormOrder, setIsOpenFormOrder] = useState(false);
   const cartProduct = useSelector(getProduct);
   const totalPrice = useSelector(getTotalCartPrice);
   console.log(cartProduct);
   const dispatch = useAppDispatch();
 
-  function addOrder() {
-    // dispatch(addOrder())
+  function openFormOrder() {
+    setIsOpenFormOrder(!isOpenFormOrder);
   }
+
+  console.log(isOpenFormOrder);
 
   function signIn() {
     dispatch(openModal());
   }
+
+  useEffect(() => {
+    return () => {};
+  });
 
   return (
     <div className={styles.wrapper}>
@@ -53,23 +61,37 @@ export const ShoppingCart = () => {
               {totalPrice} byn
             </span>
           </div>
-          <div className={styles.container_btn_wrapper}>
-            <div>
-              <Link to={"/"}>
-                <button className={styles.btn_continue}>
-                  Продолжить покупки
+          {!isOpenFormOrder && (
+            <div className={styles.container_btn_wrapper}>
+              <div>
+                <Link to={"/"}>
+                  <button className={styles.btn_continue}>
+                    Продолжить покупки
+                  </button>
+                </Link>
+              </div>
+              <div className={styles.container_btn_right}>
+                <button onClick={signIn} className={styles.btn_sign_in}>
+                  Войти
                 </button>
-              </Link>
+                <button
+                  className={styles.btn_add_order}
+                  onClick={openFormOrder}
+                >
+                  Оформить заказ
+                </button>
+              </div>
             </div>
-            <div className={styles.container_btn_right}>
-              <button onClick={signIn} className={styles.btn_sign_in}>
-                Войти
-              </button>
-              <button className={styles.btn_add_order} onClick={addOrder}>
-                Оформить заказ
-              </button>
+          )}
+
+          {isOpenFormOrder && (
+            <div>
+              <form>
+                <label></label>
+                <input type="text" placeholder="Адрес доставки" />
+              </form>
             </div>
-          </div>
+          )}
         </div>
       )}
       <hr />
