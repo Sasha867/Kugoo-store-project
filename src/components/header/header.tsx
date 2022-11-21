@@ -135,17 +135,19 @@ export const Header = () => {
           )}
           <button className={styles.input_right_search}></button>
         </div>
-        <div className={styles.wrapper_acaunt}>
-          <AcountButton />
-        </div>
-        <div className={`${styles.wrapper_cart} margin_right`}>
-          <Link to={"/cart"} className={styles.cart_button}>
-            <IoIosCart className={styles.cart_icon} />
-            Корзина{" "}
-            <span className={styles.number_items_in_cart}>
-              {cartProductArr.length}
-            </span>
-          </Link>
+        <div className={styles.container_ac}>
+          <div className={styles.wrapper_acaunt}>
+            <AcountButton />
+          </div>
+          <div className={`${styles.wrapper_cart} margin_right`}>
+            <Link to={"/cart"} className={styles.cart_button}>
+              <IoIosCart className={styles.cart_icon} />
+              Корзина{" "}
+              <span className={styles.number_items_in_cart}>
+                {cartProductArr.length}
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
       <div className={`${styles.nav_info} margin_left margin_right`}>
