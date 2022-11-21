@@ -1,3 +1,5 @@
+import { CartObject } from "../../redux/features/cart";
+
 export interface CardScooter {
   title: string;
   price: number;
@@ -16,4 +18,22 @@ export interface CardScooter {
     rate: string;
     count: string;
   };
+}
+
+export interface Order {
+  userInformation: UserInformation;
+  userProducts: CartObject[];
+  totalPrice: number;
+  userId: string;
+  createdAt: number;
+}
+
+export interface UserInformation {
+  adress: string;
+  email: string;
+  phone: string;
+}
+
+export interface RequestCall {
+  tel: string;
 }

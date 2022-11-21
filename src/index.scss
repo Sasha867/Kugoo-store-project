@@ -130,32 +130,32 @@ hr {
 // 	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
 // }
 
-// @media (max-width: 400px) {
-//   .container_label_right {
-//     display: inline-block;
-//     text-align: center;
-//   }
-//   .container_label_left {
-//     justify-content: center;
-//   }
-// }
+@media (max-width: 400px) {
+  .container_label_right {
+    display: inline-block;
+    text-align: center;
+  }
+  .container_label_left {
+    justify-content: center;
+  }
+}
 
-// @media (max-width: 620px) {
-//   .categories {
-//     justify-content: center;
-//   }
-//   .categories_popular {
-//     margin-bottom: 20px;
-//   }
-//   .categories_menu {
-//     justify-content: space-around;
-//   }
-//   .container_often_buy {
-//     justify-content: space-around;
-//   }
-// }
-// @media (max-width: 720px) {
-//   .button_choice {
-//     margin-top: 20px;
-//   }
-// }
+@media (max-width: 620px) {
+  .categories {
+    justify-content: center;
+  }
+  .categories_popular {
+    margin-bottom: 20px;
+  }
+  .categories_menu {
+    justify-content: space-around;
+  }
+  .container_often_buy {
+    justify-content: space-around;
+  }
+}
+@media (max-width: 720px) {
+  .button_choice {
+    margin-top: 20px;
+  }
+}

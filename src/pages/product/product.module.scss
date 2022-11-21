@@ -1,13 +1,15 @@
 .wrapper {
   padding: 50px 0px 50px;
-  @media (max-width: 950px) {
+  @media (max-width: 1198px) {
     margin: 0px 50px;
   }
 }
 .container_product {
   display: flex;
   flex-wrap: wrap;
-  @media (max-width: 720px) {
+  justify-content: space-between;
+  padding: 20px;
+  @media (max-width: 1012px) {
     justify-content: center;
   }
 }
@@ -25,24 +27,56 @@
 .right_bar {
   display: flex;
   flex-direction: column;
+  width: 30%;
   justify-content: space-between;
   margin-left: 30px;
+  @media (max-width: 770px) {
+    width: 50%;
+    justify-content: center;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  span {
+    font-size: 16px;
+    padding: 5px;
+  }
 }
 .product_info {
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
+  @media (max-width: 770px) {
+    justify-content: center;
+    font-size: 14px;
+  }
 }
 
-.price {
-  font-size: 22px;
-  color: #a7a7a7;
-  text-decoration: line-through;
+.product_spec {
+  display: flex;
+  flex-direction: column;
+  span {
+    @media (max-width: 770px) {
+      width: 200px;
+      justify-content: center;
+      font-size: 14px;
+    }
+  }
+  @media (max-width: 770px) {
+    width: 200px;
+    justify-content: center;
+  }
 }
 
-.stock_price {
-  font-size: 22px;
-  font-weight: 600;
-}
+// .price {
+//   font-size: 22px;
+//   color: #a7a7a7;
+//   text-decoration: line-through;
+// }
+
+// .stock_price {
+//   font-size: 22px;
+//   font-weight: 600;
+// }
 .description {
   font-size: 16px;
   text-align: justify;
@@ -54,6 +88,7 @@
 .button_add {
   font-size: 14px;
   padding: 10px;
+  min-width: 150px;
   color: #ffff;
   background-color: #6f73ee;
 }

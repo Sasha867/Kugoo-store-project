@@ -1,9 +1,18 @@
-import { useEffect, useState } from "react";
+import { addDoc, collection } from "firebase/firestore";
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { CartItem } from "../../components/cart-item/cartItem";
+import { Order, UserInformation } from "../../components/constans/interfaces";
+import { OrderForm } from "../../components/order-form/orderForm";
+import { db } from "../../firebase/firebase";
+import { resetCart } from "../../redux/features/cart";
 import { openModal } from "../../redux/features/visibleSlice";
-import { getProduct, getTotalCartPrice } from "../../redux/selectors/selectors";
+import {
+  getProduct,
+  getTotalCartPrice,
+  getUser,
+} from "../../redux/selectors/selectors";
 import { useAppDispatch } from "../../redux/store";
 
 import styles from "./shoppingCart.module.scss";
@@ -12,22 +21,29 @@ export const ShoppingCart = () => {
   const [isOpenFormOrder, setIsOpenFormOrder] = useState(false);
   const cartProduct = useSelector(getProduct);
   const totalPrice = useSelector(getTotalCartPrice);
-  console.log(cartProduct);
+  const user = useSelector(getUser);
+
   const dispatch = useAppDispatch();
 
   function openFormOrder() {
     setIsOpenFormOrder(!isOpenFormOrder);
   }
 
-  console.log(isOpenFormOrder);
-
   function signIn() {
     dispatch(openModal());
   }
 
-  useEffect(() => {
-    return () => {};
-  });
+  async function addOrder(values: UserInformation) {
+    const order: Order = {
+      totalPrice: totalPrice,
+      userProducts: cartProduct,
+      userInformation: values,
+      userId: user?.uid || "",
+      createdAt: new Date().getTime(),
+    };
+    await addDoc(collection(db, "Orders"), order);
+    dispatch(resetCart());
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -86,10 +102,7 @@ export const ShoppingCart = () => {
 
           {isOpenFormOrder && (
             <div>
-              <form>
-                <label></label>
-                <input type="text" placeholder="Адрес доставки" />
-              </form>
+              <OrderForm cartOrder={addOrder} />
             </div>
           )}
         </div>

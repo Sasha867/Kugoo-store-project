@@ -17,11 +17,8 @@ export const getCardsGoods = createAsyncThunk<any, any>(
     const arrayCardsScooter: object[] = [];
     const resData = await getDocs(collection(db, "products"));
     resData.forEach((el) => {
-      console.log(el.id);
       arrayCardsScooter.push({ ...el.data(), id: el.id });
     });
-    console.log(arrayCardsScooter);
-
     return arrayCardsScooter;
   }
 );

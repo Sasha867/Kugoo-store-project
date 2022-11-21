@@ -15,9 +15,16 @@ header {
   font-weight: normal;
   background: #ffffff;
   justify-content: space-between;
+  @media (max-width: 878px) {
+    justify-content: center;
+  }
 }
 .nav_right {
   display: flex;
+  @media (max-width: 1010px) {
+    justify-content: center;
+    margin: 0px 50px 0px 50px;
+  }
 }
 .nav_right ul {
   display: flex;
@@ -57,6 +64,9 @@ header {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  @media (max-width: 1010px) {
+    margin: 0px 50px 0px 50px;
+  }
 }
 
 .nav_center {
@@ -66,10 +76,23 @@ header {
   /* flex-wrap: wrap; */
   justify-content: space-between;
   align-items: center;
+  @media (max-width:916px) {
+    justify-content: center;
+    @media (max-width: 770px) {
+      flex-direction: column;
+    }
+  }
 }
 .nav_search {
   display: flex;
   position: relative;
+  @media (max-width:1200px) {
+    margin-left: 70px;
+    @media (max-width: 770px) {
+      padding: 5px;
+      margin-left: 0px;
+    }
+  }
 }
 
 .nav_search ul {
@@ -116,30 +139,64 @@ header {
 .main_search {
   width: 100%;
   height: 40px;
+  min-width: 350px;
   border-radius: 5px;
   border: 1.5px solid #6f73ee;
   outline: #6f73ee;
   font-size: 14px;
+  padding-left: 10px;
+  @media (max-width:915px) {
+    max-width: 350px;
+   
+  }
 }
 
 .main_search::-webkit-input-placeholder {
-  text-align: center;
   font-size: 14px;
   font-weight: 400;
 }
 
-.main_search:focus{
+.main_search:focus {
   font-size: 17px;
-  text-align: center;
+  caret-color: var(--purple);
 }
 
-.form_wrap {
+.input_wrap {
   position: relative;
   width: 100%;
   max-width: 600px;
   display: flex;
   align-items: center;
   margin-right: 47px;
+  @media (max-width:915px) {
+    max-width: 350px;
+    @media (max-width:676px) {
+      margin-right: 0px;
+    }
+  }
+}
+
+.results {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #ffffff;
+  top: 45px;
+  left: 0;
+  z-index: 10;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 0 0 5px 5px;
+}
+
+.searchLink {
+  font-size: 17px;
+  padding: 7px;
+  &:hover {
+    font-size: 20px;
+    background-color: #e7ebf0;
+  }
 }
 
 // .input_left_search {
@@ -189,6 +246,14 @@ header {
   position: absolute;
   display: flex;
 }
+
+.container_ac{
+  display: flex;
+  @media (max-width:916px) {
+    margin:10px 10px;
+  }
+}
+
 .wrapper_cart {
   position: relative;
   display: inline-flex;
@@ -198,6 +263,9 @@ header {
   border-radius: 50px;
   cursor: pointer;
   transition: 0.2s all;
+  @media (max-width:916px) {
+    margin-right: 10px;
+  }
 }
 .wrapper_acaunt {
   position: relative;
@@ -257,6 +325,9 @@ header {
   align-items: center;
   min-height: 40px;
   background: #f4f7fb;
+  @media (max-width: 1095px) {
+    margin: 0px 30px 0px 30px;
+  }
 }
 .nav_info ul {
   display: flex;

@@ -76,14 +76,15 @@ export const AcountBar = () => {
       </Link>
       <hr className={styles.hr} />
       <div className={styles.user_select}>
-        <span>Просомтренные</span>
-        <span>Избранные товары</span>
+        <span className={styles.selec_list}>Просомтренные</span>
+        <span className={styles.selec_list}>Избранные товары</span>
+        {user && (
+          <Link to={"/history"}>
+            <span className={styles.selec_list}>История покупок</span>
+          </Link>
+        )}
       </div>
-
-      <hr className={styles.hr} />
       <div className={styles.user_select}>
-        <span>Личные данные</span>
-        <span>История покупок</span>
         <hr className={styles.hr} />
         {user && (
           <button onClick={logoutHandler} className={styles.userSignOutBtn}>

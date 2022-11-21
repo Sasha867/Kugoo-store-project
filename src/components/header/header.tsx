@@ -7,14 +7,42 @@ import { IoIosCart } from "react-icons/io";
 import { RequestACall } from "../../pages/request-a-call/requestACall";
 import { useDispatch, useSelector } from "react-redux";
 import { openRequestCall } from "../../redux/features/visibleSlice";
-import { getProduct, isOpenRequestCall } from "../../redux/selectors/selectors";
+import {
+  getCardsCollection,
+  getProduct,
+  isOpenRequestCall,
+} from "../../redux/selectors/selectors";
 import styles from "./header.module.scss";
+import { useState } from "react";
 
 export const Header = () => {
+  const [searchProduct, setSearchProduct] = useState("");
   const visibleState = useSelector(isOpenRequestCall);
   const dispatch = useDispatch();
 
   const cartProductArr = useSelector(getProduct);
+  const cardsCollection = useSelector(getCardsCollection);
+
+  function findProductChangeHandler({ target: { value } }: any) {
+    setSearchProduct(value);
+  }
+
+  const showResultSearch = () => {
+    if (cardsCollection && searchProduct) {
+      const listProducts = cardsCollection.filter((el) =>
+        el.title.toUpperCase().includes(searchProduct.toUpperCase())
+      );
+      if (listProducts) {
+        return listProducts;
+      }
+      return [];
+    }
+    return [];
+  };
+
+  const closeResultsSearch = () => {
+    setSearchProduct("");
+  };
 
   const toggleRequestCall = () => {
     dispatch(openRequestCall());
@@ -62,7 +90,7 @@ export const Header = () => {
             +375(29)777-77-77
           </a>
           <FcClock className={styles.icon_arrow} />
-           <span>с 8.00 до 22.00</span> 
+          <span>с 10.00 до 22.00</span>
         </div>
       </div>
       <div className={styles.nav_center}>
@@ -80,27 +108,46 @@ export const Header = () => {
             </li>
           </ul>
         </div>
-        <form className={styles.form_wrap} action="get">
+        <div className={styles.input_wrap}>
           <input
             className={styles.main_search}
             type="text"
-            // value={}
+            value={searchProduct}
+            onChange={findProductChangeHandler}
             placeholder="Искать в Каталоге. Например, KugooKirin M4"
           />
-          {/* <div className={styles.input_left_search}>Везде</div> */}
+          {!!showResultSearch().length && (
+            <div className={styles.wrapper}>
+              <div className={styles.results}>
+                {showResultSearch().map((el) => (
+                  <Link
+                    key={el.id}
+                    className={styles.searchLink}
+                    onClick={closeResultsSearch}
+                    to={"/product/" + el.id}
+                  >
+                    {" "}
+                    {el.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
           <button className={styles.input_right_search}></button>
-        </form>
-        <div className={styles.wrapper_acaunt}>
-          <AcountButton />
         </div>
-        <div className={`${styles.wrapper_cart} margin_right`}>
-          <Link to={"/cart"} className={styles.cart_button}>
-            <IoIosCart className={styles.cart_icon} />
-            Корзина{" "}
-            <span className={styles.number_items_in_cart}>
-              {cartProductArr.length}
-            </span>
-          </Link>
+        <div className={styles.container_ac}>
+          <div className={styles.wrapper_acaunt}>
+            <AcountButton />
+          </div>
+          <div className={`${styles.wrapper_cart} margin_right`}>
+            <Link to={"/cart"} className={styles.cart_button}>
+              <IoIosCart className={styles.cart_icon} />
+              Корзина{" "}
+              <span className={styles.number_items_in_cart}>
+                {cartProductArr.length}
+              </span>
+            </Link>
+          </div>
         </div>
       </div>
       <div className={`${styles.nav_info} margin_left margin_right`}>

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./swiperProduct.module.scss";
@@ -9,7 +9,7 @@ import "swiper/css/free-mode";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
-import { getImageUrl, URL_STORAGE } from "../constans/constans";
+import { getImageUrl } from "../constans/constans";
 
 type Props = {
   images: string[];
@@ -33,12 +33,12 @@ export const SwiperProduct = ({ images }: Props) => {
         className={styles.wrapper}
       >
         {images.map((el) => (
-          <SwiperSlide>
+          <SwiperSlide key={new Date().getTime() + el}>
             <img src={getImageUrl(el)} alt="" />
           </SwiperSlide>
         ))}
       </Swiper>
-      <Swiper
+      {/* <Swiper
         //@ts-ignore
         onSwiper={setThumbsSwiper}
         loop={true}
@@ -50,11 +50,11 @@ export const SwiperProduct = ({ images }: Props) => {
         className={styles.swiper_tabs_wrapper}
       >
         {images.map((el) => (
-          <SwiperSlide>
+          <SwiperSlide key={new Date().getTime() + el}>
             <img src={getImageUrl(el)} alt="" />
           </SwiperSlide>
         ))}
-      </Swiper>
+      </Swiper> */}
     </>
   );
 };

@@ -155,7 +155,7 @@ export const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <img src="./img/google_play.png" alt="" />
+            <img src="../../../img/google_play.png" alt="" />
           </a>
           <a
             className={styles.container_label_icon}

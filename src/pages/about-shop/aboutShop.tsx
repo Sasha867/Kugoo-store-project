@@ -16,11 +16,8 @@ export const AboutShop = () => {
     setIsVideo((prev) => !prev);
   }
 
-  // console.log(isVideo);
-
   return (
     <>
-      {/* <div className={styles.wrapper}> */}
       <div className={styles.about_shop_introduction}>
         <div className={`${styles.about_shop_info} margin_left`}>
           <h3 className={styles.title}>
@@ -42,7 +39,6 @@ export const AboutShop = () => {
           </span>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 };

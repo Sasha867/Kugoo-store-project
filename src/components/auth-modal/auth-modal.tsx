@@ -25,7 +25,7 @@ export const Modal = () => {
     if (user) {
       dispatch(closeModal());
     }
-  }, [dispatch, user]);
+  }, [user]);
 
   function changeToRegisterState() {
     setIsRegisterState((prev) => !prev);
@@ -81,7 +81,7 @@ export const Modal = () => {
             ? authErrors[userLoginError.code as keyof typeof authErrors]
             : ""}
         </span>
-        <form action="">
+        <div>
           <span>Электронная почта</span>
           <input
             className={styles.input_mail}
@@ -108,7 +108,7 @@ export const Modal = () => {
               />
             </div>
           )}
-        </form>
+        </div>
         <span>
           Нажимая {isRegisterState ? "«Регистрация»" : "«Войти»"}, вы
           соглашаетесь с политикой обработки персональных данных
