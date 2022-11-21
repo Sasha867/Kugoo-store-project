@@ -11,7 +11,7 @@ import { FcPlus } from "react-icons/fc";
 import { ImMinus } from "react-icons/im";
 import styles from "./cartItem.module.scss";
 import { useNavigate } from "react-router-dom";
-import { getProductUser } from "../../redux/features/userProduct";
+
 
 type Props = {
   card: CartObject;

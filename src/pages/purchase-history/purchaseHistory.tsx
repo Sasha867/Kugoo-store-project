@@ -38,8 +38,16 @@ export const PurchaseHistory = () => {
             <span className={styles.data}>
               {format(new Date(el.createdAt), "dd.MMM yyyy EEEE/kk:mm:ss ")}
             </span>
-            {el.userProducts.map((product, index) => (
-              <CartItem key={index} card={product} id={""} isHistory={true} />
+            {el.userProducts.map((product) => (
+              <CartItem
+                key={
+                  new Date().getTime() +
+                  Math.floor(Math.random() * 1000).toString()
+                }
+                card={product}
+                id={""}
+                isHistory={true}
+              />
             ))}
           </div>
         );

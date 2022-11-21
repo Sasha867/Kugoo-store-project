@@ -1,10 +1,9 @@
 // import { getDownloadURL, getStorage, ref } from "firebase/storage";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { collection, addDoc, getDocs } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
 import { cardScooter } from "../components/constans/constans";
-import { doc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAuQiWxZ98QhKcVCxIx9UjxXzr0fmHsPKo",
@@ -20,8 +19,8 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
 
-// onAuthStateChanged(auth, (user) => { 
-//   console.log(user); 
+// onAuthStateChanged(auth, (user) => {
+//   console.log(user);
 
 //   if (user) {
 //     // User is signed in, see docs for a list of available properties
