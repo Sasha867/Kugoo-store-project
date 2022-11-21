@@ -17,7 +17,6 @@ export const getProductUser = createAsyncThunk<any, any>(
     const docRef = doc(db, "products/", `${id}`);
     const docSnap = await getDoc(docRef);
     const userProduct = { ...docSnap.data(), id: id };
-    console.log(userProduct);
     return userProduct;
   }
 );

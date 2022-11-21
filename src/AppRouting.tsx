@@ -21,8 +21,6 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) {
-        console.log(user);
-        
         dispatch(setUser(user));
       }
     });
@@ -39,8 +37,8 @@ function App() {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/product/:id" element={<Product />} />
         <Route path="*" element={<Navigate replace to="/" />} />
-        <Route path="/history" element={<PurchaseHistory/>}/>      
-        </Routes>
+        <Route path="/history" element={<PurchaseHistory />} />
+      </Routes>
       <Footer />
     </BrowserRouter>
   );

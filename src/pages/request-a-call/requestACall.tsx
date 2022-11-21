@@ -11,8 +11,7 @@ import { db } from "../../firebase/firebase";
 export const RequestACall = () => {
   const [isShouldChoice, setIsShouldChoice] = useState(false);
   const [isUserTel, setIsUserTel] = useState("");
-  console.log(isUserTel);
-
+ 
   const dispatch = useDispatch();
 
   const telChangeHandler = ({ target: { value } }: any) => {
@@ -66,7 +65,6 @@ export const RequestACall = () => {
                 onChange={telChangeHandler}
                 pattern="^\s*\+?375((33\d{7})|(29\d{7})|(44\d{7}|)|(25\d{7}))\s*$"
                 placeholder="+375(ХХ)777-77-77"
-                required
                 autoFocus
               />
               <button

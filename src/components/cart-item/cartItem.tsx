@@ -21,7 +21,6 @@ type Props = {
 
 export const CartItem = ({ card, id, isHistory }: Props) => {
   const dispatch = useAppDispatch();
-  console.log(id);
 
   function removeItem() {
     dispatch(deleteProduct(id));
@@ -36,10 +35,6 @@ export const CartItem = ({ card, id, isHistory }: Props) => {
   }
 
   const navigate = useNavigate();
-
-  function addOrder() {
-    // dispatch(addOrder())
-  }
 
   function showProduct() {
     navigate(`/product/${card.product.id}`);
@@ -103,12 +98,6 @@ export const CartItem = ({ card, id, isHistory }: Props) => {
             )}
           </div>
         </div>
-
-        {/* <hr /> */}
-        {/* <div className={styles.container_btn}>
-          <Link to={"/"}><button>Продолжить покупки</button></Link>
-          <button onClick={addOrder}>Оформить заказ</button>
-        </div> */}
       </div>
     </div>
   );

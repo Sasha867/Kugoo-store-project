@@ -14,6 +14,7 @@ import {
 } from "../../redux/selectors/selectors";
 import styles from "./header.module.scss";
 import { useState } from "react";
+import { getImageUrl } from "../constans/constans";
 
 export const Header = () => {
   const [searchProduct, setSearchProduct] = useState("");
@@ -119,8 +120,14 @@ export const Header = () => {
           {showResultSearch().length && (
             <div className={styles.results}>
               {showResultSearch().map((el) => (
-                <Link onClick={closeResultsSearch} to={"/product/" + el.id}>
+                <Link key={el.id}
+                  className={styles.searchLink}
+                  onClick={closeResultsSearch}
+                  to={"/product/" + el.id}
+                >
+                  {" "}
                   {el.title}
+                  {/* <img src={getImageUrl(el.images[0])} alt="" /> */}
                 </Link>
               ))}
             </div>

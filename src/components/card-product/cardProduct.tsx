@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { IMG_NOPHOTO, URL_STORAGE } from "../constans/constans";
 import styles from "./cardProduct.module.scss";
-import { TbCurrencyRubel } from "react-icons/tb";
 import { CardScooter } from "../constans/interfaces";
 
 type Props = {
@@ -11,8 +10,6 @@ type Props = {
 
 export const CardProduct = ({ specification }: Props) => {
   const [isChangeImage, setIsChangeImage] = useState(false);
-
-  console.log(specification);
 
   const navigate = useNavigate();
 
@@ -90,22 +87,22 @@ export const CardProduct = ({ specification }: Props) => {
           </div>
           <div className={styles.card_price_main}>
             <div className={styles.card_price}>
-              <span className={styles.card_start_price}>
+              {/* <span className={styles.card_start_price}>
                 {specification.price}
                 <TbCurrencyRubel />
-              </span>
-              <span className={styles.card_stock_price}>
+              </span> */}
+              {/* <span className={styles.card_stock_price}>
                 {specification.stockPrice}
                 <TbCurrencyRubel />
-              </span>
+              </span> */}
             </div>
-            <div className={styles.card_items}>
-              <Link to={"/cart"}>
+            {/* <div className={styles.card_items}> */}
+            {/* <Link to={"/cart"}>
                 <img src="./images/shopping-cart.svg" alt="image_cart" />
-              </Link>
+              </Link> */}
 
-              {/* <img src="./images/hart.svg" alt="" /> */}
-            </div>
+            {/* <img src="./images/hart.svg" alt="" /> */}
+            {/* </div> */}
           </div>
           <button className={styles.button_buy}>Узнать больше</button>
         </div>

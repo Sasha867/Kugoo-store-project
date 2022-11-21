@@ -32,8 +32,6 @@ export const CartProductSlice = createSlice({
       if (!isProductFound) {
         state.cart = [...state.cart, { product: action.payload, count: 1 }];
       }
-      console.log(state.cart);
-      console.log(action.payload);
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
     deleteProduct: (state, action: PayloadAction<string>) => {

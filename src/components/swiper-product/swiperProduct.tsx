@@ -49,8 +49,8 @@ export const SwiperProduct = ({ images }: Props) => {
         modules={[FreeMode, Navigation, Thumbs]}
         className={styles.swiper_tabs_wrapper}
       >
-        {images.map((el) => (
-          <SwiperSlide>
+        {images.map((el, index) => (
+          <SwiperSlide key={index}>
             <img src={getImageUrl(el)} alt="" />
           </SwiperSlide>
         ))}

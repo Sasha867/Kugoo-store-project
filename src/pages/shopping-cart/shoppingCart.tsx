@@ -22,14 +22,12 @@ export const ShoppingCart = () => {
   const cartProduct = useSelector(getProduct);
   const totalPrice = useSelector(getTotalCartPrice);
   const user = useSelector(getUser);
-  console.log(cartProduct);
+
   const dispatch = useAppDispatch();
 
   function openFormOrder() {
     setIsOpenFormOrder(!isOpenFormOrder);
   }
-
-  console.log(isOpenFormOrder);
 
   function signIn() {
     dispatch(openModal());

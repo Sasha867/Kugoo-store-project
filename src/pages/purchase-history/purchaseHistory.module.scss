@@ -1,0 +1,17 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.product_info {
+  max-width: 1040px;
+  padding: 30px;
+  width: 100%;
+}
+
+.data {
+  display: flex;
+  color: #777777;
+  margin: 0px 0px 7px 10px;
+}

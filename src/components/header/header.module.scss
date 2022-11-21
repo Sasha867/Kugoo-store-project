@@ -130,7 +130,7 @@ header {
 
 .main_search:focus {
   font-size: 17px;
-   caret-color: var(--purple);
+  caret-color: var(--purple);
 }
 
 .input_wrap {
@@ -153,10 +153,16 @@ header {
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.5);
   padding: 5px;
   border-radius: 0 0 5px 5px;
-  
 }
 
-
+.searchLink {
+  font-size: 17px;
+  padding: 7px;
+  &:hover {
+    font-size: 20px;
+    background-color: #e7ebf0;
+  }
+}
 
 // .input_left_search {
 //   position: absolute;

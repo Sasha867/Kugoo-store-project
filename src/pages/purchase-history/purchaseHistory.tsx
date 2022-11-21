@@ -14,15 +14,15 @@ export const PurchaseHistory = () => {
 
   const [history, setHistory] = useState<Order[]>([]);
 
+  console.log(history);
+
   useEffect(() => {
     const ordersRef = collection(db, "Orders");
     setDefaultOptions({ locale: ru });
     if (user) {
       console.log(user.uid);
       let historyArray: Order[] = [];
-      getDocs(
-        query(collection(db, "Orders"), where("userId", "==", user.uid))
-      ).then((res) => {
+      getDocs(query(ordersRef, where("userId", "==", user.uid))).then((res) => {
         // @ts-ignore
         res.forEach((el) => historyArray.push(el.data()));
         setHistory(historyArray);
@@ -34,12 +34,12 @@ export const PurchaseHistory = () => {
     <div className={styles.wrapper}>
       {history.map((el: Order) => {
         return (
-          <div>
-            <span>
-              {format(new Date(el.createdAt), "dd.MMM yyyy EEEE/kk-mm-ss ")}
+          <div className={styles.product_info}>
+            <span className={styles.data}>
+              {format(new Date(el.createdAt), "dd.MMM yyyy EEEE/kk:mm:ss ")}
             </span>
-            {el.userProducts.map((product) => (
-              <CartItem card={product} id={""} isHistory={true} />
+            {el.userProducts.map((product, index) => (
+              <CartItem key={index} card={product} id={""} isHistory={true} />
             ))}
           </div>
         );

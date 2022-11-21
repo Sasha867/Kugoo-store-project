@@ -58,11 +58,10 @@
   border-radius: 5px;
   width: 90%;
   padding: 14px;
-  text-align: center;
   margin-bottom: 20px;
 }
 .request_call_input::-webkit-input-placeholder {
-  text-align: center;
+  padding-left: 10px;
   font-size: 14px;
   color: var(--purple);
 }
@@ -111,10 +110,12 @@
   height: 20px;
   color: rgb(152, 148, 148);
   margin: 5px 5px 0px 0px;
+
   &:hover {
     width: 25px;
     height: 25px;
     color: black;
     margin: 0;
+    cursor: pointer;
   }
 }
