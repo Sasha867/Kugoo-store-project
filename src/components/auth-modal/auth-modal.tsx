@@ -44,18 +44,19 @@ export const Modal = () => {
     setConfirmUserPassword(value);
   };
 
-  // function checkRegisterPasswords() {
-  //   if (userPassword === confirmUserPassword) {
-  //     dispatch(registerUser({ email: userMail, password: userPassword }));
-  //   }else if(){
-
-  //   }
-  // }
+  function checkRegisterPasswords() {
+    if (userPassword === confirmUserPassword) {
+      dispatch(registerUser({ email: userMail, password: userPassword }));
+    }else{
+    //  return <span>{Error("Пароль не совпадает!")}</span> 
+      ;
+    }
+  }
 
   const clickSubmitHandler = () => {
-    if (isRegisterState) {
-      // checkRegisterPasswords();
-      dispatch(registerUser({ email: userMail, password: userPassword }));
+    if (isRegisterState ) {
+      checkRegisterPasswords();
+      // dispatch(registerUser({ email: userMail, password: userPassword }));
     } else {
       dispatch(signInUser({ email: userMail, password: userPassword }));
     }

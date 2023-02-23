@@ -36,14 +36,16 @@ export const Product = () => {
           <div className={styles.product_info}>
             <h2>{userProduct?.title}</h2>
             <div className={styles.product_spec}>
-              <span>battery: {userProduct?.battery}</span>
-              <span>Время зарядки:{userProduct?.charger}</span>
-              <span>Запас хода: {userProduct?.maxDistance}</span>
-              <span>Максимальная скорость:{userProduct?.maxSpeed}</span>
-              <span>Мощность мотора:{userProduct?.power}</span>
+              <span>
+                <p>Батарея:&nbsp;</p>
+                {userProduct?.battery}
+              </span>
+              <span><p>Время зарядки:&nbsp;</p>{userProduct?.charger}</span>
+              <span><p>Запас хода:&nbsp;</p>{userProduct?.maxDistance}</span>
+              <span><p>Максимальная скорость:&nbsp;</p>{userProduct?.maxSpeed}</span>
+              <span><p>Мощность мотора:&nbsp;</p>{userProduct?.power}</span>
               <span className={styles.stock_price}>
-                Стоимость:
-                {userProduct?.price} byn
+               <p>Стоимость:&nbsp;</p>  {userProduct?.stockPrice} byn
               </span>
             </div>
           </div>

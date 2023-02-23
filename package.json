@@ -33,8 +33,11 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
+  "homepage": "http://{github-sasha867}.github.io/{kugoo-store-project}",
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -55,6 +58,7 @@
   },
   "devDependencies": {
     "@types/react-slick": "^0.23.10",
-    "@types/react-slider": "^1.3.1"
+    "@types/react-slider": "^1.3.1",
+    "gh-pages": "^5.0.0"
   }
 }

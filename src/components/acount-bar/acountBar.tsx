@@ -2,7 +2,8 @@ import { useEffect } from "react";
 import { FaRegUser } from "react-icons/fa";
 import { IoIosCart } from "react-icons/io";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { resetCart } from "../../redux/features/cart";
 import { signOutUser } from "../../redux/features/user";
 
 import {
@@ -18,6 +19,7 @@ export const AcountBar = () => {
   const dispatch = useAppDispatch();
 
   const user = useSelector(getUser);
+  const navigate = useNavigate();
 
   const userEmailDisplay: string = user?.email
     ? user?.email
@@ -29,6 +31,8 @@ export const AcountBar = () => {
 
   const logoutHandler = () => {
     dispatch(signOutUser(null));
+    dispatch(resetCart());
+    navigate("/");
   };
 
   useEffect(() => {
