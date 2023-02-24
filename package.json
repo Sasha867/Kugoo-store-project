@@ -37,7 +37,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "http://github-sasha867.github.io/kugoo-store-project",
+  "homepage": "https://github-sasha867.github.io/kugoo-store-project",
   "eslintConfig": {
     "extends": [
       "react-app",
