@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/kugoo-store-project/static/css/main.e2f3fe24.css",
-    "main.js": "/kugoo-store-project/static/js/main.c0dfcd69.js",
-    "static/js/787.f793d4f2.chunk.js": "/kugoo-store-project/static/js/787.f793d4f2.chunk.js",
-    "static/media/Mask Group main.svg": "/kugoo-store-project/static/media/Mask Group main.0bde678b6437a3b87e72.svg",
-    "static/media/service_and_repaire.png": "/kugoo-store-project/static/media/service_and_repaire.8a9680497e7c6b223d73.png",
-    "static/media/Mask_Group.jpg": "/kugoo-store-project/static/media/Mask_Group.5919843089cf25bde8ee.jpg",
-    "static/media/dron_1.png": "/kugoo-store-project/static/media/dron_1.531828df0655f611a05c.png",
-    "static/media/woman-longsleeve-request-call.png": "/kugoo-store-project/static/media/woman-longsleeve-request-call.b1bf7eef1c43813a1b81.png",
-    "static/media/timer 1.svg": "/kugoo-store-project/static/media/timer 1.0da5715b0ed91721358c.svg",
-    "static/media/speedometer 1.svg": "/kugoo-store-project/static/media/speedometer 1.f80dab666ee868ed4354.svg",
-    "index.html": "/kugoo-store-project/index.html",
-    "static/media/accumulator 1.svg": "/kugoo-store-project/static/media/accumulator 1.14ce0a36e5ec139ff285.svg",
-    "static/media/Search.svg": "/kugoo-store-project/static/media/Search.e65a1c4ca02c9c486b8a.svg",
-    "static/media/power 1.svg": "/kugoo-store-project/static/media/power 1.b695bb2d404d493bb0a9.svg",
-    "static/media/fon big.svg": "/kugoo-store-project/static/media/fon big.225d57470d787c50f868.svg",
-    "main.e2f3fe24.css.map": "/kugoo-store-project/static/css/main.e2f3fe24.css.map",
-    "main.c0dfcd69.js.map": "/kugoo-store-project/static/js/main.c0dfcd69.js.map",
-    "787.f793d4f2.chunk.js.map": "/kugoo-store-project/static/js/787.f793d4f2.chunk.js.map"
+    "main.css": "/Kugoo-store-project/static/css/main.8af7352a.css",
+    "main.js": "/Kugoo-store-project/static/js/main.91c79b28.js",
+    "static/js/787.f793d4f2.chunk.js": "/Kugoo-store-project/static/js/787.f793d4f2.chunk.js",
+    "static/media/Mask Group main.svg": "/Kugoo-store-project/static/media/Mask Group main.0bde678b6437a3b87e72.svg",
+    "static/media/service_and_repaire.png": "/Kugoo-store-project/static/media/service_and_repaire.8a9680497e7c6b223d73.png",
+    "static/media/Mask_Group.jpg": "/Kugoo-store-project/static/media/Mask_Group.5919843089cf25bde8ee.jpg",
+    "static/media/dron_1.png": "/Kugoo-store-project/static/media/dron_1.531828df0655f611a05c.png",
+    "static/media/woman-longsleeve-request-call.png": "/Kugoo-store-project/static/media/woman-longsleeve-request-call.b1bf7eef1c43813a1b81.png",
+    "static/media/timer 1.svg": "/Kugoo-store-project/static/media/timer 1.0da5715b0ed91721358c.svg",
+    "static/media/speedometer 1.svg": "/Kugoo-store-project/static/media/speedometer 1.f80dab666ee868ed4354.svg",
+    "index.html": "/Kugoo-store-project/index.html",
+    "static/media/accumulator 1.svg": "/Kugoo-store-project/static/media/accumulator 1.14ce0a36e5ec139ff285.svg",
+    "static/media/Search.svg": "/Kugoo-store-project/static/media/Search.e65a1c4ca02c9c486b8a.svg",
+    "static/media/power 1.svg": "/Kugoo-store-project/static/media/power 1.b695bb2d404d493bb0a9.svg",
+    "static/media/fon big.svg": "/Kugoo-store-project/static/media/fon big.225d57470d787c50f868.svg",
+    "main.8af7352a.css.map": "/Kugoo-store-project/static/css/main.8af7352a.css.map",
+    "main.91c79b28.js.map": "/Kugoo-store-project/static/js/main.91c79b28.js.map",
+    "787.f793d4f2.chunk.js.map": "/Kugoo-store-project/static/js/787.f793d4f2.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e2f3fe24.css",
-    "static/js/main.c0dfcd69.js"
+    "static/css/main.8af7352a.css",
+    "static/js/main.91c79b28.js"
   ]
 }
